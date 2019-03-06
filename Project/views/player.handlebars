@@ -1,0 +1,18 @@
+<html>
+    {{#each foo}}
+    {{this}}
+    {{/each}}
+    <h3>Add Player</h3>
+    <form id="addPlayer" action="/player" method="POST">
+        First Name: <input type="text" name="First_Name"> <br>
+        Last Name: <input type="text" name="Last_Name"> <br>
+        College: <input type="text" name="College"> <br>
+        Number: <input type="text" name="Number"> <br>
+        Team: <select name="player">
+            {{#each player}}
+            <option value="{{id}}"> {{name}} </option>
+            {{/each}} </select> <br>
+        <input type="submit" value="Submit">
+    </form>
+    </br>
+</html>
