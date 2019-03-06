@@ -1,0 +1,19 @@
+<html>
+    {{#each foo}}
+    {{this}}
+    {{/each}}
+    <h3>Add Team</h3>
+    <form id="addTeam" action="/team" method="POST">
+        Abbreviation: <input type="text" name="Abbreviation"> <br>
+        Name: <input type="text" name="Name"> <br>
+        City: <input type="text" name="City"> <br>
+        State: <input type="text" name="State"> <br>
+        Country: <input type = "text" name="Country"> <br>
+        Stadium: <input type="text" name="Stadium">
+            {{#each team}}
+            <option value="{{id}}"> {{name}} </option>
+            {{/each}} </select> <br>
+        <input type="submit" value="Submit">
+    </form>
+    </br>
+</html>
