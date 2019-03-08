@@ -11,7 +11,7 @@
             <th>Team</th>
         </thead>
         <tbody>
-            {{#each coach}}
+            {{#each Coach}}
             <tr>
                 <td>{{First_Name}}</td>
                 <td>{{Last_Name}}</td>
@@ -23,10 +23,10 @@
     </table>
     
     <h3>Add Coach</h3>
-    <form id="addCoach" action="/coach" method="POST">
+    <form id="addCoach" action="/Coach" method="POST">
         First Name: <input type="text" name="First_Name"> <br>
         Last Name: <input type="text" name="Last_Name"> <br>
-        Team: <select name="coach">
+        Team: <select name="name">
             {{#each coach}}
             <option value="{{id}}"> {{name}} </option>
             {{/each}} </select> <br>
