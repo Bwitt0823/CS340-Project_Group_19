@@ -1,0 +1,28 @@
+<html>
+    {{#each foo}}
+    {{this}}
+    {{/each}}
+
+    <h3>Current Front Office Members<h3>
+    <table>
+      <thead>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Role</th>
+        <th>Team</th>
+      </thead>
+      <tbody>
+        {{#each frontOffice}}
+        <tr>
+          <td>{{First_Name}}</td>
+          <td>{{Last_Name}}</td>
+          <td>{{Role}}</td>
+          <td>{{Team}}</td>
+          <td><button onclick="deleteFrontOffice({{id}})">Delete</button></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+
+</html>
