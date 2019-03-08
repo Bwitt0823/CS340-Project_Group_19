@@ -14,13 +14,17 @@
             <th>Stadium</th>
         </thead>
         <tbody>
-            <td>{{Abbreviation}}</td>
-            <td>{{Name}}</td>
-            <td>{{City}}</td>
-            <td>{{State}}</td>
-            <td>{{Country}}</td>
-            <td>{{Stadium}}</td>
-            <td><button onclick="deleteTeam({{id}})">Delete</button></td>
+            {{each}}
+            <tr>
+                <td>{{Abbreviation}}</td>
+                <td>{{Name}}</td>
+                <td>{{City}}</td>
+                <td>{{State}}</td>
+                <td>{{Country}}</td>
+                <td>{{Stadium}}</td>
+                <td><button onclick="deleteTeam({{id}})">Delete</button></td>
+            </tr>
+            {{/each}}
         </tbody>
     </table>
     
