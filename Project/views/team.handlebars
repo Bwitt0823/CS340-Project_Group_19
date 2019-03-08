@@ -2,6 +2,28 @@
     {{#each foo}}
     {{this}}
     {{/each}}
+    
+    <h3>Current Teams</h3>
+    <table>
+        <thead>
+            <th>Abbreviation</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Country</th>
+            <th>Stadium</th>
+        </thead>
+        <tbody>
+            <td>{{Abbreviation}}</td>
+            <td>{{Name}}</td>
+            <td>{{City}}</td>
+            <td>{{State}}</td>
+            <td>{{Country}}</td>
+            <td>{{Stadium}}</td>
+            <td><button onclick="deleteTeam({{id}})">Delete</button></td>
+        </tbody>
+    </table>
+    
     <h3>Add Team</h3>
     <form id="addTeam" action="/team" method="POST">
         Abbreviation: <input type="text" name="Abbreviation"> <br>
@@ -16,4 +38,5 @@
         <input type="submit" value="Submit">
     </form>
     </br>
+    
 </html>
