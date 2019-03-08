@@ -2,12 +2,32 @@
     {{#each foo}}
     {{this}}
     {{/each}}
+    
+    <h3>Current Players</h3>
+    <table>
+        <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>College</th>
+            <th>Number</th>
+            <th>Team</th>
+        </thead>
+        <tbody>
+            <td>{{First_Name}}</td>
+            <td>{{Last Name}}</td>
+            <td>{{College}}</td>
+            <td>{{Number}}</td>
+            <td>{{Team}}</td>
+            <td><button onclick="deletePlayer({{id}})">Delete</button></td>
+        </tbody>
+    </table>
+    
     <h3>Add Player</h3>
     <form id="addPlayer" action="/player" method="POST">
         First Name: <input type="text" name="First_Name"> <br>
         Last Name: <input type="text" name="Last_Name"> <br>
         College: <input type="text" name="College"> <br>
-        Number: <input type="text" name="Number"> <br>
+        Number: <input type="number" name="Number"> <br>
         Team: <select name="player">
             {{#each player}}
             <option value="{{id}}"> {{name}} </option>
@@ -15,4 +35,5 @@
         <input type="submit" value="Submit">
     </form>
     </br>
+    
 </html>
