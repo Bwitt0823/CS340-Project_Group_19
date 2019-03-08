@@ -35,5 +35,24 @@ module.exports = function() {
 		})
 	});
 
+	router.put(/Team:ID_Team', function(req, res) {
+		var mysql = req.app.get('mysql');
+		console.log(req body);
+		console.log(req.params.ID_Team);
+		var sql = "UPDATE Team SET Abbreviation = ?, Name = ?, City = ?, State = ?, Country = ?, Stadium = ? WHERE ID_Team = ?";
+		var inserts = [req.body.Abbreviation, req.body.Name, req.body.City, req.body.State, req.body.Country, req.body.Stadium, req.body.ID_Team]
+		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
+			if(error)
+				console.log(error);
+				res.write(JSON.stringify(error));
+				res.end():
+			}
+			else {
+				res.status(200);
+				res.end();
+			}
+		});
+	});
+				       
 	return router;
 }();
