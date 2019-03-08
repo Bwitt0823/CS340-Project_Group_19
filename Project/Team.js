@@ -35,7 +35,7 @@ module.exports = function() {
 		})
 	});
 
-	router.put(/Team:ID_Team', function(req, res) {
+	router.put('/Team:ID_Team', function(req, res) {
 		var mysql = req.app.get('mysql');
 		console.log(req body);
 		console.log(req.params.ID_Team);
