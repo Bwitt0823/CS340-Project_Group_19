@@ -13,28 +13,28 @@
             <th>Team</th>
         </thead>
         <tbody>
-            {{#each player}}
+            {{#each Player}}
             <tr>
                 <td>{{First_Name}}</td>
                 <td>{{Last Name}}</td>
                 <td>{{College}}</td>
                 <td>{{Number}}</td>
                 <td>{{Team}}</td>
-                <td><button onclick="deletePlayer({{id}})">Delete</button></td>
+                <td><button onclick="deletePlayer({{ID_Player}})">Delete</button></td>
             <tr>
             {{/each}}
         </tbody>
     </table>
     
     <h3>Add Player</h3>
-    <form id="addPlayer" action="/player" method="POST">
+    <form id="addPlayer" action="/Player" method="POST">
         First Name: <input type="text" name="First_Name"> <br>
         Last Name: <input type="text" name="Last_Name"> <br>
         College: <input type="text" name="College"> <br>
         Number: <input type="number" name="Number"> <br>
         Team: <select name="player">
-            {{#each player}}
-            <option value="{{id}}"> {{name}} </option>
+            {{#each Player}}
+            <option value="{{ID_Player}}"> {{Team}} </option>
             {{/each}} </select> <br>
         <input type="submit" value="Submit">
     </form>
