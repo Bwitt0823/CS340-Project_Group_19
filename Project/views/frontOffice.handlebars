@@ -18,7 +18,7 @@
           <td>{{Last_Name}}</td>
           <td>{{Role}}</td>
           <td>{{Team}}</td>
-          <td><button onclick="deleteFrontOffice({{id}})">Delete</button></td>
+          <td><button onclick="deleteFrontOffice({{ID_Front_Office}})">Delete</button></td>
         </tr>
         {{/each}}
       </tbody>
@@ -29,9 +29,9 @@
         First Name: <input type="text" name="First_Name"> <br>
         Last Name: <input type="text" name="Last_Name"> <br>
         Role: <input type="text" name="Role"> <br>
-        Team: <select name="coach">
+        Team: <select name="team">
             {{#each frontOffice}}
-            <option value="{{id}}"> {{name}} </option>
+            <option value="{{id}}"> {{team}} </option>
             {{/each}} </select> <br>
         <input type="submit" value="Submit">
     </form>
