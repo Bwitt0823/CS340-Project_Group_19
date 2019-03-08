@@ -35,7 +35,7 @@ module.exports = function() {
 		})
 	});
 
-	router.put(/Player:ID_Front_Office', function(req, res) {
+	router.put('/Player:ID_Front_Office', function(req, res) {
 		var mysql = req.app.get('mysql');
 		console.log(req body);
 		console.log(req.params.ID_Team);
