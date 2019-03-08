@@ -20,7 +20,7 @@ CREATE TABLE Front_Office (
     ID_Front_Office int AUTO_INCREMENT PRIMARY KEY,
     First_Name char(50),
     Last_Name char(50),
-    Roll char(50),
+    Role char(50),
     Team char(4),
     FOREIGN KEY Team_Front_Office (Team)
     	REFERENCES Team (Abbreviation)
