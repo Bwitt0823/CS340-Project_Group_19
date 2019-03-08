@@ -35,5 +35,24 @@ module.exports = function() {
 		})
 	});
 
+	router.put('/Coach:ID_Coach', function(req, res) {
+		var mysql = req.app.get('mysql');
+		console.log(req body);
+		console.log(req.params.ID_Team);
+		var sql = "UPDATE Coach SET First_Name = ?, Last_Name = ?, Team = ? WHERE ID_Coach = ?";
+		var inserts = [req.body.First_Name, req.body.Last_Name, req.body.Team, req.body.ID_Coach]
+		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
+			if(error)
+				console.log(error);
+				res.write(JSON.stringify(error));
+				res.end():
+			}
+			else {
+				res.status(200);
+				res.end();
+			}
+		});
+	});
+
 	return router;
 }();
