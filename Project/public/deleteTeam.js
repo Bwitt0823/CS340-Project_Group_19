@@ -1,6 +1,6 @@
-function deleteTeam(ID_Team) {
+function deleteTeam(Abbreviation) {
   $.ajac({
-    url: '/Team/' + ID_Team,
+    url: '/Team/' + Abbreviation,
     type: 'DELETE',
     success: function(result) {
       window.location.reload(true);
