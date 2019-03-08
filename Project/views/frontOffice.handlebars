@@ -24,5 +24,17 @@
       </tbody>
     </table>
 
+    <h3>Add Front Office Member</h3>
+    <form id="addFrontOffice" action="/frontOffice" method="POST">
+        First Name: <input type="text" name="First_Name"> <br>
+        Last Name: <input type="text" name="Last_Name"> <br>
+        Role: <input type="text" name="Role"> <br>
+        Team: <select name="coach">
+            {{#each frontOffice}}
+            <option value="{{id}}"> {{name}} </option>
+            {{/each}} </select> <br>
+        <input type="submit" value="Submit">
+    </form>
+    </br>
 
 </html>
