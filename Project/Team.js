@@ -19,9 +19,9 @@ module.exports = function() {
 		});
 	});
 
-	router.DELETE('/Team:ID_Team', function(req, res) {
+	router.DELETE('/Team:Abbreviation', function(req, res) {
 		var mysql = req.app.get('mysql');
-		var sql = "DELETE FROM Team WHERE ID_Team = ?";
+		var sql = "DELETE FROM Team WHERE Abbreviation = ?";
 		var inserts = [req.params.ID_Team];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(error)
@@ -35,12 +35,12 @@ module.exports = function() {
 		})
 	});
 
-	router.put('/Team:ID_Team', function(req, res) {
+	router.put('/Team:Abbreviation', function(req, res) {
 		var mysql = req.app.get('mysql');
 		console.log(req body);
 		console.log(req.params.ID_Team);
-		var sql = "UPDATE Team SET Abbreviation = ?, Name = ?, City = ?, State = ?, Country = ?, Stadium = ? WHERE ID_Team = ?";
-		var inserts = [req.body.Abbreviation, req.body.Name, req.body.City, req.body.State, req.body.Country, req.body.Stadium, req.body.ID_Team]
+		var sql = "UPDATE Team SET Name = ?, City = ?, State = ?, Country = ?, Stadium = ? WHERE ID_Team = Abbreviation";
+		var inserts = [req.body.Name, req.body.City, req.body.State, req.body.Country, req.body.Stadium, req.body.Abbreviation]
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(error)
 				console.log(error);
