@@ -20,6 +20,8 @@ app.set('view engine', 'handlebars');
 app.set('port', '32818');
 app.set('mysql', mysql);
 
+app.use('/', homeRoute);
+
 app.use(function(req,res){
   res.status(404);
   res.render('404');
