@@ -55,7 +55,7 @@ module.exports = function() {
 		var sql = "DELETE FROM `Coach` WHERE ID_Coach = ?";
 		var inserts = [req.params.ID_Coach];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
-			if(error)
+			if(error) {
 				return res.status(400).send(JSON.stringify(error));
 			} else {
 				res.sendStatus(200).end();
