@@ -30,12 +30,11 @@ module.exports = function() {
 		var sql = "DELETE FROM Player WHERE ID_Player = ?";
 		var inserts = [req.params.ID_Player];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
-			if(error)
+			if(error) {
 				res.write(JSON.stringify(error));
 				res.status(400);
 				res.end();
-			}
-			else {
+			} else {
 				res.status(202).end();
 			}
 		})
