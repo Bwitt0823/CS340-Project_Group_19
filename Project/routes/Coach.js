@@ -24,7 +24,7 @@ module.exports = function() {
 		context.title = "Coach";
 		context.jsscripts = [];
 		var mysql = req.app.get('mysql');
-		/*getCoach(res, mysql, context, complete);*/
+		getCoach(res, mysql, context, complete);
 		function complete() {
 			callbackCount++;
 			if(callbackCount >= 1) {
