@@ -3,9 +3,10 @@
     handlebars for HTML templates  
 */
 
-var express = require('express');
-var mysql = require('./dbcon.js');
-var bodyParser = require('body-parser');
+const express = require('express');
+const mysql = require('./dbcon.js');
+const path = require('path');
+const bodyParser = require('body-parser');
 
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
