@@ -35,7 +35,6 @@ module.exports = function() {
 	});
 				
 	//Create a new Coach
-	/*NEED TO FIX CODE TO ALLOW THE TEAM NAME VALUE TO POPUALTE*/
 	router.post('/', function(req, res) {
 		var mysql = req.app.get('mysql');
 		var sql = "INSERT INTO `Coach` (First_Name, Last_Name, Team) VALUES (?, ?, ?)";
