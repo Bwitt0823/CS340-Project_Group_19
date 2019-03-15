@@ -71,7 +71,7 @@ module.exports = function() {
 	router.get('/UpdateCoach:cid', function(req, res) {
 		const context = {};
 		var mysql = req.app.get('mysql');
-		console.log(req body);
+		console.log(req.body);
 		console.log(req.params.cid);
 		var sql = "SELECT First_Name, Last_Name, Team FROM `Coach` WHERE ID_Coach = ?";
 		var inserts = [req.params.cid]
