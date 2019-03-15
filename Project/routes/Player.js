@@ -50,7 +50,7 @@ module.exports = function() {
 			if(error)
 				console.log(error);
 				res.write(JSON.stringify(error));
-				res.end():
+				res.end();
 			}
 			else {
 				res.status(200);
