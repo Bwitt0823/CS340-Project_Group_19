@@ -11,7 +11,11 @@ const bodyParser = require('body-parser');
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 
-const homeRoute = require(path.join(__dirname, "routes/home"));
+const homeRoute = require(path.join(__dirname, "routes/index"));
+const playerRoute = require(path.join(__dirname, "routes/Player"));
+const coachRoute = require(path.join(__dirname, "routes/Coach"));
+const frontOfficeRoute = require(path.join(__dirname, "routes/FrontOffice"));
+const teamRoute = require(path.join(__dirname, "routes/Team"));
 
 app.engine('handlebars', handlebars.engine);
 app.use(bodyParser.urlencoded({extended:true}));
@@ -21,6 +25,10 @@ app.set('port', '32818');
 app.set('mysql', mysql);
 
 app.use('/', homeRoute);
+app.use('/', playerRoute);
+app.use('/', coachRoute);
+app.use('/', frontOfficeRoute);
+app.use('/', teamRoute);
 
 app.use(function(req,res){
   res.status(404);
