@@ -3,11 +3,11 @@ module.exports = function() {
 	var router = express.Router();
 
 	//Render Home Page
-	router.get('/', function(req, res) {
+	router.get('/Player', function(req, res) {
 		const context = {};
 		context.jsscripts = [];
-		context.title = "Home";
-		res.render('index', context);
+		context.title = "Player";
+		res.render('Player', context);
 	});
 
 	/*router.POST('/Player', function(req, res) {
