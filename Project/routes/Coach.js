@@ -50,6 +50,8 @@ module.exports = function() {
 		});
 	});
 
+	//Delete a Coach
+	/*NEED TO FIX CODE TO HAVE THE FUNCTION CALLED TO REMOVE THE COACH*/
 	router.delete('/:cid', function(req, res) {
 		var mysql = req.app.get('mysql');
 		var sql = "DELETE FROM `COACH` WHERE ID_Coach = ?";
