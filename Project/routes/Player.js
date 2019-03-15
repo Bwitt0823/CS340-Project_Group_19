@@ -10,7 +10,7 @@ module.exports = function() {
 		res.render('index', context);
 	});
 
-	router.POST('/Player', function(req, res) {
+	/*router.POST('/Player', function(req, res) {
 		var mysql = req.app.get('mysql');
 		var sql = "INSERT INTO Player (First_Name, Last_Name, College, Number, Team) VALUES (?, ?, ?, ?, ?)";
 		var inserts = [req.body.First_Name, req.body.Last_Name, req.body.College, req.body.Number, req.body.Team];
@@ -56,7 +56,7 @@ module.exports = function() {
 				res.end();
 			}
 		});
-	});
+	});*/
 
 	return router;
 }();
