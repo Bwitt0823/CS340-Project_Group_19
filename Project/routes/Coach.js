@@ -64,25 +64,40 @@ module.exports = function() {
 			}
 		});
 	});
-
-	/*router.put('/Coach:ID_Coach', function(req, res) {
+	
+	/* Update Coach Page*/
+	
+	//Render Update Coach Page
+	router.get('/UpdateCoach:cid', function(req, res) {
+		const context = {};
 		var mysql = req.app.get('mysql');
 		console.log(req body);
-		console.log(req.params.ID_Team);
-		var sql = "UPDATE Coach SET First_Name = ?, Last_Name = ?, Team = ? WHERE ID_Coach = ?";
-		var inserts = [req.body.First_Name, req.body.Last_Name, req.body.Team, req.body.ID_Coach]
+		console.log(req.params.cid);
+		var sql = "SELECT First_Name, Last_Name, Team FROM `Coach` WHERE ID_Coach = ?";
+		var inserts = [req.params.cid]
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
-			if(error)
-				console.log(error);
-				res.write(JSON.stringify(error));
-				res.end():
-			}
-			else {
-				res.status(200);
-				res.end();
+			if(error || results.length == 0) {
+				return res.render('404');
+			} else {
+				context.Coach = results[0];
+				res.render("UpdateCoach", context);
 			}
 		});
-	}); */
-
+	}); 
+	
+	//Update Coach
+	router.post('UpdateCoach:cid', function(req, res) {
+		var mysql = req.app.get('mysql');
+		var sql = "UPDATE Coach SET First_Name = ?, Last_Name = ?, Team = ? WHERE ID_Coach = ?";
+		var inserts = [req.body.First_Name, req.body.Last_Name, req.body.Team, req.params.cid];
+		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
+			if(error) {
+				return res.render('404');
+			} else {
+				res.redirect('/Coach');
+			}
+		});
+	});
+		
 	return router;
 }();
