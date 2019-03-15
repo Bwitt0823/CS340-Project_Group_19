@@ -17,7 +17,7 @@ module.exports = function() {
 		});
 	};
 	
-	//Main Coach Page
+	//Display all Coaches
 	router.get('/', function(req, res) {
 		callbackCount = 0;
 		const context = {};
@@ -35,24 +35,21 @@ module.exports = function() {
 	});
 				
 
-	/*router.POST('/Coach', function(req, res) {
+	router.post('/', function(req, res) {
 		var mysql = req.app.get('mysql');
 		var sql = "INSERT INTO Coach (First_Name, Last_Name, Team) VALUES (?, ?, ?)";
 		var inserts = [req.body.First_Name, req.body.Last_Name, req.body.Team];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(error) {
-				res.write(JSON.stringify(error));
-				res.end();
+				return res.status(400).send.(JSON.stringify(error));
 			}
 			else {
 				res.redirect('/Coach');
 			}
 		});
 	});
-	
-	router.get('/', function(req, res) {
 
-	router.DELETE('/Coach:ID_Coach', function(req, res) {
+	/*router.DELETE('/Coach:ID_Coach', function(req, res) {
 		var mysql = req.app.get('mysql');
 		var sql = "DELETE FROM Coach WHERE ID_Coach = ?";
 		var inserts = [req.params.ID_Coach];
