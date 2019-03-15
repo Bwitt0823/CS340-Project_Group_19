@@ -22,7 +22,7 @@ module.exports = function() {
 		callbackCount = 0;
 		const context = {};
 		context.title = "Coach";
-		context.jsscripts = [deleteCoach.js];
+		context.jsscripts = ["deleteCoach.js"];
 		var mysql = req.app.get('mysql');
 		getCoach(res, mysql, context, complete);
 		function complete() {
