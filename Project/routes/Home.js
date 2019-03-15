@@ -7,7 +7,7 @@ module.exports = function() {
 		const context = {};
 		context.jsscripts = [];
 		context.title = "Home";
-		res.render('index', context);
+		res.render('Index', context);
 	});
 
 	
