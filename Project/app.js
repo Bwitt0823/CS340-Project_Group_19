@@ -25,10 +25,10 @@ app.set('port', '32818');
 app.set('mysql', mysql);
 
 app.use('/', homeRoute);
-app.use('/', playerRoute);
-app.use('/', coachRoute);
-app.use('/', frontOfficeRoute);
-app.use('/', teamRoute);
+app.use('/Player', playerRoute);
+app.use('/Coach', coachRoute);
+app.use('/FrontOffice', frontOfficeRoute);
+app.use('/Team', teamRoute);
 
 app.use(function(req,res){
   res.status(404);
