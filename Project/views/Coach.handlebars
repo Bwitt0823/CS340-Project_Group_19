@@ -23,9 +23,9 @@
 	<form id="addCoach" action="/Coach" method="POST">
 		First Name: <input type="text" name="First_Name"> <br>
 		Last Name: <input type="text" name="Last_Name"> <br>
-		Team: <select name="name">
+		Team: <select name="Team">
 		{{#each Coach}}
-		<option value="{{ID_Coach}}" name="Team"> {{Team}} </option>
+		<option value="{{ID_Coach}}"> {{Team}} </option>
 		{{/each}} </select> <br>
 		<input type="submit" value="Submit">
 	</form>
