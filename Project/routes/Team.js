@@ -10,7 +10,7 @@ module.exports = function() {
 		res.render('index', context);
 	});
 
-	router.POST('/Team', function(req, res) {
+	/*router.POST('/Team', function(req, res) {
 		var mysql = req.app.get('mysql');
 		var sql = "INSERT INTO Team (Abbreviation, Name, City, State, Country, Stadium) VALUES (?, ?, ?, ?, ?, ?)";
 		var inserts = [req.body.Abbreviation, req.body.Name, req.body.City, req.body.State, req.body.Country, req.body.Stadium];
@@ -58,7 +58,7 @@ module.exports = function() {
 				res.end();
 			}
 		});
-	});
+	});*/
 				       
 	return router;
 }();
