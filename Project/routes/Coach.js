@@ -13,6 +13,7 @@ module.exports = function() {
 				res.end();
 			}
 			context.Coach = results;
+			complete();
 		});
 	};
 	
@@ -31,7 +32,6 @@ module.exports = function() {
 				res.render('Coach', context);
 			}
 		}
-		complete();
 	});
 				
 
