@@ -11,7 +11,7 @@ module.exports = function() {
 	});
 
 
-	router.POST('/FrontOffice', function(req, res) {
+	/*router.POST('/FrontOffice', function(req, res) {
 		var mysql = req.app.get('mysql');
 		var sql = "INSERT INTO Front_Office (First_Name, Last_Name, Role, Team) VALUES (?, ?, ?, ?)";
 		var inserts = [req.body.First_Name, req.body.Last_Name, req.body.Role, req.body.Team];
@@ -59,7 +59,7 @@ module.exports = function() {
 				res.end();
 			}
 		});
-	});
+	});*/
 
 	return router;
 }();
