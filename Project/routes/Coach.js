@@ -6,7 +6,7 @@ module.exports = function() {
 	
 	//Displays all Coaches
 	function getCoach(res, mysql, context, complete) {
-		var sql = "SELECT ID_Coach, First_Name, Last_Name, Team FROM `Coach` WHERE 1";
+		var sql = "SELECT First_Name, Last_Name, Team FROM `Coach` WHERE 1";
 		mysql.pool.query(sql, function(error, results, fields) {
 			if(error) {
 				res.write(JSON.stringify(error));
@@ -50,7 +50,7 @@ module.exports = function() {
 	});
 
 	//Delete a Coach
-	/*NEED TO FIX CODE TO HAVE THE FUNCTION CALLED TO REMOVE THE COACH*/
+	/*NEED TO FIX CODE TO HAVE THE FUNCTION CALLED TO REMOVE THE COACH, {{ID_Coach}} is not pulling into Coach.handlebars*/
 	router.delete('/:cid', function(req, res) {
 		var mysql = req.app.get('mysql');
 		var sql = "DELETE FROM `COACH` WHERE ID_Coach = ?";
@@ -65,9 +65,9 @@ module.exports = function() {
 	});
 	
 	/* Update Coach Page*/
-	
+	/*NEED TO UPDATE CODE TO ALLOW UPDATE PAGE TO RENDER, {{ID_Coach}} is not pulling into Coach.handlebars*/
 	//Render Update Coach Page
-	router.get('/UpdateCoach:cid', function(req, res) {
+	router.get('/UpdateCoach/:cid', function(req, res) {
 		const context = {};
 		var mysql = req.app.get('mysql');
 		console.log(req.body);
@@ -85,7 +85,7 @@ module.exports = function() {
 	}); 
 	
 	//Update Coach
-	router.post('UpdateCoach:cid', function(req, res) {
+	router.post('UpdateCoach/:cid', function(req, res) {
 		var mysql = req.app.get('mysql');
 		var sql = "UPDATE Coach SET First_Name = ?, Last_Name = ?, Team = ? WHERE ID_Coach = ?";
 		var inserts = [req.body.First_Name, req.body.Last_Name, req.body.Team, req.params.cid];
