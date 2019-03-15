@@ -3,7 +3,7 @@ module.exports = function() {
 	var router = express.Router();
 
 	//Render Home Page
-	router.get('/Player', function(req, res) {
+	router.get('/', function(req, res) {
 		const context = {};
 		context.jsscripts = [];
 		context.title = "Player";
