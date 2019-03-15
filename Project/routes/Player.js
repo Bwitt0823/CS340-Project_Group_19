@@ -47,12 +47,11 @@ module.exports = function() {
 		var sql = "UPDATE Player SET First_Name = ?, Last_Name = ?, College = ?, Number = ?, Team = ? WHERE ID_Player = ?";
 		var inserts = [req.body.First_Name, req.body.Last_Name, req.body.College, req.body.Number, req.body.Team, req.body.ID_Player]
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
-			if(error)
+			if(error) {
 				console.log(error);
 				res.write(JSON.stringify(error));
 				res.end();
-			}
-			else {
+			} else {
 				res.status(200);
 				res.end();
 			}
