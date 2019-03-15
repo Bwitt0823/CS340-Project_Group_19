@@ -13,7 +13,6 @@ module.exports = function() {
 				res.end();
 			}
 			context.Coach = results;
-			complete();
 		});
 	};
 	
