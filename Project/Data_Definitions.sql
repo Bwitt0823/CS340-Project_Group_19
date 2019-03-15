@@ -82,6 +82,18 @@ CREATE TABLE Coach_Position (
     	REFERENCES Position (ID_Position)
 );
 
+-- Create Team_Coach Table
+DROP TABLE IF EXISTS Team_Coach
+CREATE TABLE Team_Coach (
+	Abbreviation char(4),
+	ID_Coach int,
+	PRIMARY KEY (Abbreviation, ID_Coach),
+	FOREIGN KEY Team_Name (Abbreviation)
+		REFERENCES TEAM (Abbreviation),
+	FOREIGN KEY Coach_Team (ID_Coach)
+		REFERENCES Coach (ID_Coach)
+);
+
 -- Insert Sample Team
 INSERT INTO Team 
 	(Abbreviation, Name, City, State, Country, Stadium)
