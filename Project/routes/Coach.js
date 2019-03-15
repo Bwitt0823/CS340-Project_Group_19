@@ -6,7 +6,7 @@ module.exports = function() {
 	
 	//Displays all Coaches
 	function getCoach(res, mysql, context, complete) {
-		var sql = "SELECT First_Name, Last_Name, Team FROM `Coach`";
+		var sql = "SELECT * FROM `Coach` WHERE 1";
 		mysql.pool.query(sql, function(error, results, fields) {
 			if(error) {
 				res.write(JSON.stringify(error));
