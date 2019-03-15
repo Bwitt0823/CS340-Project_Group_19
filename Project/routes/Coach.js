@@ -22,7 +22,7 @@ module.exports = function() {
 		callbackCount = 0;
 		const context = {};
 		context.title = "Coach";
-		context.jsscripts = [];
+		context.jsscripts = [deleteCoach.js];
 		var mysql = req.app.get('mysql');
 		getCoach(res, mysql, context, complete);
 		function complete() {
@@ -34,10 +34,11 @@ module.exports = function() {
 		}
 	});
 				
-
+	//Create a new Coach
+	/*NEED TO FIX CODE TO ALLOW THE TEAM NAME VALUE TO POPUALTE*/
 	router.post('/', function(req, res) {
 		var mysql = req.app.get('mysql');
-		var sql = "INSERT INTO Coach (First_Name, Last_Name, Team) VALUES (?, ?, ?)";
+		var sql = "INSERT INTO `Coach` (First_Name, Last_Name, Team) VALUES (?, ?, ?)";
 		var inserts = [req.body.First_Name, req.body.Last_Name, req.body.Team];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(error) {
@@ -49,23 +50,20 @@ module.exports = function() {
 		});
 	});
 
-	/*router.DELETE('/Coach:ID_Coach', function(req, res) {
+	router.delete('/:ID_Coach', function(req, res) {
 		var mysql = req.app.get('mysql');
-		var sql = "DELETE FROM Coach WHERE ID_Coach = ?";
+		var sql = "DELETE FROM `Coach` WHERE ID_Coach = ?";
 		var inserts = [req.params.ID_Coach];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(error)
-				res.write(JSON.stringify(error));
-				res.status(400);
-				res.end();
-			}
-			else {
-				res.status(202).end();
+				return res.status(400).send(JSON.stringify(error));
+			} else {
+				res.sendStatus(200).end();
 			}
 		})
 	});
 
-	router.put('/Coach:ID_Coach', function(req, res) {
+	/*router.put('/Coach:ID_Coach', function(req, res) {
 		var mysql = req.app.get('mysql');
 		console.log(req body);
 		console.log(req.params.ID_Team);
