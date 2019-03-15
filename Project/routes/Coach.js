@@ -6,8 +6,8 @@ module.exports = function() {
 	router.get('/', function(req, res) {
 		const context = {};
 		context.jsscripts = [];
-		context.title = "Home";
-		res.render('index', context);
+		context.title = "Coach";
+		res.render('Coach', context);
 	});
 
 	/*router.POST('/Coach', function(req, res) {
