@@ -11,7 +11,7 @@ const bodyParser = require('body-parser');
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 
-const homeRoute = require(path.join(__dirname, "routes/index"));
+const homeRoute = require(path.join(__dirname, "routes/Home"));
 const playerRoute = require(path.join(__dirname, "routes/Player"));
 const coachRoute = require(path.join(__dirname, "routes/Coach"));
 const frontOfficeRoute = require(path.join(__dirname, "routes/FrontOffice"));
