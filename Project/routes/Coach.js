@@ -50,17 +50,17 @@ module.exports = function() {
 		});
 	});
 
-	router.delete('/:ID_Coach', function(req, res) {
+	router.delete('/:cid', function(req, res) {
 		var mysql = req.app.get('mysql');
-		var sql = "DELETE FROM `Coach` WHERE ID_Coach = ?";
-		var inserts = [req.params.ID_Coach];
-		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
-			if(error) {
-				return res.status(400).send(JSON.stringify(error));
+		var sql = "DELETE FROM `COACH` WHERE ID_Coach = ?";
+		var inserts = [req.params.cid];
+		sql = mysql.pool.query(sql, inserts, function(err, results, fields) {
+			if(err) {
+				return res.status(400).send(JSON.stringify(err));
 			} else {
 				res.sendStatus(200).end();
 			}
-		})
+		});
 	});
 
 	/*router.put('/Coach:ID_Coach', function(req, res) {
