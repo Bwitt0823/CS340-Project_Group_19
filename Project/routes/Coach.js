@@ -41,7 +41,7 @@ module.exports = function() {
 		var inserts = [req.body.First_Name, req.body.Last_Name, req.body.Team];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(error) {
-				return res.status(400).send.(JSON.stringify(error));
+				return res.status(400).send(JSON.stringify(error));
 			}
 			else {
 				res.redirect('/Coach');
