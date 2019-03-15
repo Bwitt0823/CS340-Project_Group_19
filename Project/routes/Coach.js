@@ -1,14 +1,39 @@
 module.exports = function() {
 	var express = require('express');
 	var router = express.Router();
-
-	//Render Home Page
+	
+	/* Coach Home Page*/
+	
+	//Displays all Coaches
+	function getCoach(res, mysql, context, complete) {
+		var sql = "SELECT First_Name, Last_Name, Team FROM `Coach`";
+		mysql.pool.query(sql, function(error, results, fields) {
+			if(error) {
+				res.write(JSON.stringify(error));
+				res.end();
+			}
+			context.Coach = results;
+			complete();
+		});
+	};
+	
+	//Main Coach Page
 	router.get('/', function(req, res) {
-		const context = {};
-		context.jsscripts = [];
+		callbackCount = 0;
+		const contect = {};
 		context.title = "Coach";
-		res.render('Coach', context);
+		context.jsscripts = [];
+		var mysql = req.app.get('mysql');
+		getCoach(res, mysql, context, complete);
+		function complete() {
+			callbackCount++;
+			if(callbackCount >= 1) {
+				console.log(context.Coach);
+				res.render('Coach', context);
+			}
+		}
 	});
+				
 
 	/*router.POST('/Coach', function(req, res) {
 		var mysql = req.app.get('mysql');
@@ -24,6 +49,8 @@ module.exports = function() {
 			}
 		});
 	});
+	
+	router.get('/', function(req, res) {
 
 	router.DELETE('/Coach:ID_Coach', function(req, res) {
 		var mysql = req.app.get('mysql');
