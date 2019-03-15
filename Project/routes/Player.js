@@ -2,7 +2,13 @@ module.exports = function() {
 	var express = require('express');
 	var router = express.Router();
 
-
+	//Render Home Page
+	router.get('/', function(req, res) {
+		const context = {};
+		context.jsscripts = [];
+		context.title = "Home";
+		res.render('index', context);
+	});
 
 	router.POST('/Player', function(req, res) {
 		var mysql = req.app.get('mysql');
