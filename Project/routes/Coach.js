@@ -20,7 +20,7 @@ module.exports = function() {
 	//Main Coach Page
 	router.get('/', function(req, res) {
 		callbackCount = 0;
-		const contect = {};
+		const context = {};
 		context.title = "Coach";
 		context.jsscripts = [];
 		var mysql = req.app.get('mysql');
