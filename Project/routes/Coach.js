@@ -116,7 +116,9 @@ module.exports = function() {
 		function complete() {
 			callbackCount++;
 			if(callbackCount >= 1) {
+				console.log("test 4")
 				console.log(context.Coach);
+				console.log("test 5")
 				res.render('UpdateCoach', context);
 			}
 		}
