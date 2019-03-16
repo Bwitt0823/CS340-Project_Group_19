@@ -111,7 +111,7 @@ module.exports = function() {
 		getCoachUpdate(req, res, mysql, context, complete);
 		function complete() {
 			callbackCount++;
-			if(callbackCount >= 2) {
+			if(callbackCount >= 1) {
 				console.log(context.Coach);
 				res.render('UpdateCoach', context);
 			}
