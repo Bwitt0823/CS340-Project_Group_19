@@ -10,11 +10,11 @@
 	<tbody>
 		{{#each Coach}}
 		<tr>
-			<td>{{ID_Coach}}</td>
+			<td>{{cid}}</td>
 			<td>{{First_Name}}</td>
 			<td>{{Last_Name}}</td>
 			<td>{{Team}}</td>
-			<td><button onclick="deleteCoach({{ID_Coach}})">Delete</button></td>
+			<td><button onclick="deleteCoach({{cid}})">Delete</button></td>
 			<td><a href="/UpdateCoach/{{ID_Coach}}">Update</a></td>
 		</tr>
 		{{/each}}
