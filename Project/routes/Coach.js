@@ -31,7 +31,7 @@ module.exports = function() {
 	};
 	
 	//Displays Selected Coach
-	/*function getCoachUpdate(res, mysql, context, complete) {
+	function getCoachUpdate(res, mysql, context, complete) {
 		var sql = "SELECT First_Name, Last_Name, Team FROM `Coach` WHERE ID_Coach = ?";
 		mysql.pool.query(sql, function(error, results, fields) {
 			if(error) {
@@ -41,7 +41,7 @@ module.exports = function() {
 			context.Coach = results;
 			complete();
 		});
-	};*/
+	};
 	
 	//Display all Coaches
 	router.get('/', function(req, res) {
