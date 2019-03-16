@@ -1,15 +1,12 @@
-<html>
-
 <h3>Update Front Office Member</h3>
-    <form id="updateFrontOffice" action="/UpdateFrontOffice:ID_Front_Office" method="POST">
-        First Name: <input type="text" name="First_Name"> <br>
-        Last Name: <input type="text" name="Last_Name"> <br>
-        Role: <input type="text" name="Role"> <br>
-        Team: <select name="team">
-            {{#each FrontOffice}}
-            <option value="{{ID_Front_Office}}"> {{Team}} </option>
+    <form id="updateFrontOffice" action="/FrontOffice/UpdateFrontOffice/:{{ID_Front_Office}}" method="POST">
+        First Name: <input type="text" name="New_First_Name"> <br>
+        Last Name: <input type="text" name="New_Last_Name"> <br>
+        Role: <input type="text" name="New_Role"> <br>
+        Team: <select name="New_Team">
+            {{#each Team}}
+            <option value="{{Abbreviation}}"> {{Abbreviation}} </option>
             {{/each}} </select> <br>
         <input type="submit" value="Submit">
     </form>
-    
-</html>
+
