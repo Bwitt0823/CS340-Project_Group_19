@@ -104,7 +104,8 @@ module.exports = function() {
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(errror) {
 				return res.render('404');
-			});
+			};
+		});
 		getTeam(res, mysql, context, complete);		
 		/*getCoach(res, mysql, context, complete);*/
 		function complete() {
