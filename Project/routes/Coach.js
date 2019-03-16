@@ -50,7 +50,6 @@ module.exports = function() {
 	});
 
 	//Delete a Coach
-	/*NEED TO FIX CODE TO HAVE THE FUNCTION CALLED TO REMOVE THE COACH, {{ID_Coach}} is not pulling into Coach.handlebars*/
 	router.delete('/:cid', function(req, res) {
 		var mysql = req.app.get('mysql');
 		var sql = "DELETE FROM `Coach` WHERE ID_Coach = ?";
@@ -65,9 +64,9 @@ module.exports = function() {
 	});
 	
 	/* Update Coach Page*/
-	/*NEED TO UPDATE CODE TO ALLOW UPDATE PAGE TO RENDER, {{ID_Coach}} is not pulling into Coach.handlebars*/
+	
 	//Render Update Coach Page
-	router.get('/UpdateCoach/:cid', function(req, res) {
+	/*router.get('/UpdateCoach/:cid', function(req, res) {
 		const context = {};
 		var mysql = req.app.get('mysql');
 		console.log(req.body);
@@ -82,7 +81,36 @@ module.exports = function() {
 				res.render("UpdateCoach", context);
 			}
 		});
-	}); 
+	}); */
+	
+	function getCoachUpdate(res, mysql, cid, context, complete) {
+		var sql = "SELECT First_Name, Last_Name, Team FROM `Coach` WHERE ID_Coach = ?";
+		var inserts = [req.params.cid]
+		mysql.pool.query(sql, function(error, results, fields) {
+			if(error) {
+				res.write(JSON.stringify(error));
+				res.end();
+			}
+			context.UpdateCoach = results;
+			complete();
+		});
+	};
+	
+	router.get('/UpdateCoach/:cid', function(req, res) {
+		callbackCount = 0;
+		const context = {};
+		context.title = "Update Coach";
+		context.jsscripts = [];
+		var mysql = req.app.get('mysql');
+		getCoachUpdate(res, mysql, cid, context, complete);
+		function complete() {
+			callbackCount++;
+			if(callbackCount >= 1) {
+				console.log(context.UpdateCoach);
+				res.render('UpdateCoach', context);
+			}
+		}
+	});	
 	
 	//Update Coach
 	router.post('/UpdateCoach/:cid', function(req, res) {
