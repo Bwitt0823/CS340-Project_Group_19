@@ -1,10 +1,5 @@
-<html>
-    {{#each foo}}
-    {{this}}
-    {{/each}}
-    
-    <h3>Current Teams</h3>
-    <table>
+<h3>Current Teams</h3>
+<table>
         <thead>
             <th>Abbreviation</th>
             <th>Name</th>
@@ -22,8 +17,8 @@
                 <td>{{State}}</td>
                 <td>{{Country}}</td>
                 <td>{{Stadium}}</td>
-                <td><button onclick="deleteTeam({{Abbreviation}})">Delete</button></td>
-                <td><a href="/UpdateTeam/{{Abbreviation}}">Update</a></td>
+                <td><button onclick="deleteTeam({{tid}})">Delete</button></td>
+                <td><a href="/Team/UpdateTeam/{{tid}}">Update</a></td>
             </tr>
             {{/each}}
         </tbody>
@@ -39,6 +34,4 @@
         Stadium: <input type="text" name="Stadium"> <br>
         <input type="submit" value="Submit">
     </form>
-    </br>
-    
-</html>
+</br><br/><a href="/">Back to the home page!</a><br/>
