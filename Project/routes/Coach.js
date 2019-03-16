@@ -4,7 +4,8 @@ module.exports = function() {
 	
 	//Get access to Team table for the drop down menus
 	 function getTeam(res, mysql, context, complete){
-        	mysql.pool.query("SELECT Abbreviation FROM Team", function(error, results, fields){
+		var sql = "SELECT Abbreviation FROM `Team`";
+        	mysql.pool.query(sql, function(error, results, fields){
             		if(error){
                 		res.write(JSON.stringify(error));
                 		res.end();
@@ -37,6 +38,7 @@ module.exports = function() {
 		context.jsscripts = ["deleteCoach.js"];
 		var mysql = req.app.get('mysql');
 		getCoach(res, mysql, context, complete);
+		getTeam(res, mysql, context, complete);
 		function complete() {
 			callbackCount++;
 			if(callbackCount >= 1) {
