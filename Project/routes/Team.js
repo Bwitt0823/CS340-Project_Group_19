@@ -2,63 +2,121 @@ module.exports = function() {
 	var express = require('express');
 	var router = express.Router();
 
-	//Render Home Page
-	router.get('/', function(req, res) {
-		const context = {};
-		context.jsscripts = [];
-		context.title = "Team";
-		res.render('Team', context);
-	});
-
-	/*router.POST('/Team', function(req, res) {
-		var mysql = req.app.get('mysql');
-		var sql = "INSERT INTO Team (Abbreviation, Name, City, State, Country, Stadium) VALUES (?, ?, ?, ?, ?, ?)";
-		var inserts = [req.body.Abbreviation, req.body.Name, req.body.City, req.body.State, req.body.Country, req.body.Stadium];
-		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
+	
+	
+	/* Team Home Page*/
+	
+	//Displays all Teams
+	function getTeam(res, mysql, context, complete) {
+		var sql = "SELECT Abbreviation as tid, Name, City, State, Country, Stadium FROM `Team`";
+		mysql.pool.query(sql, function(error, results, fields) {
 			if(error) {
 				res.write(JSON.stringify(error));
 				res.end();
 			}
+			context.Team = results;
+			complete();
+		});
+	};
+	
+	//Displays Selected Team
+	function getTeamUpdate(req, res, mysql, context, complete) {
+		var sql = "SELECT Name, City, State, Country, Stadium FROM `Team` WHERE Abbreviation = ?";
+		console.log(req.params)
+		var inserts = [req.params.tid];
+		mysql.pool.query(sql, inserts, function(error, results, fields) {
+			if(error) {
+				res.write(JSON.stringify(error));
+				res.end();
+			}
+			context.Team = results;
+			complete();
+		});
+	};
+	
+	//Display all Teams
+	router.get('/', function(req, res) {
+		var callbackCount = 0;
+		const context = {};
+		context.title = "Team";
+		context.jsscripts = ["deleteTeam.js"];
+		var mysql = req.app.get('mysql');
+		getTeam(res, mysql, context, complete);		
+		function complete() {
+			callbackCount++;
+			if(callbackCount >= 2) {
+				console.log(context.Team);
+				res.render('Team', context);
+			}
+		}
+	});
+				
+	//Create a new Team
+	router.post('/', function(req, res) {
+		var mysql = req.app.get('mysql');
+		var sql = "INSERT INTO `Team` (Abbreviation, Name, City, State, Country, Stadium) VALUES (?, ?, ?, ?, ?, ?)";
+		var inserts = [req.body.tid, req.body.Name, req.body.City, req.body.State, req.body.Country, req.body.Stadium];
+		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
+			if(error) {
+				return res.status(400).send(JSON.stringify(error));
+			}
 			else {
-				res.redirect('/Player');
+				res.redirect('/Team');
 			}
 		});
 	});
 
-	router.DELETE('/Team:Abbreviation', function(req, res) {
+	//Delete a Team
+	router.delete('/:tid', function(req, res) {
 		var mysql = req.app.get('mysql');
-		var sql = "DELETE FROM Team WHERE Abbreviation = ?";
-		var inserts = [req.params.ID_Team];
-		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
-			if(error)
-				res.write(JSON.stringify(error));
-				res.status(400);
-				res.end();
-			}
-			else {
+		var sql = "DELETE FROM `Team` WHERE Abbreviation = ?";
+		var inserts = [req.params.tid];
+		sql = mysql.pool.query(sql, inserts, function(err, results, fields) {
+			if(err) {
+				return res.status(400).send(JSON.stringify(err));
+			} else {
 				res.status(202).end();
 			}
-		})
+		});
 	});
-
-	router.put('/Team:Abbreviation', function(req, res) {
+	
+	/* Update Team Page*/
+	
+	//Display to Update Team
+	router.get('/UpdateTeam/:tid', function(req, res) {
+		var callbackCount = 0;
+		const context = {};
+		context.title = "UpdateTeam";
+		context.jsscripts = [];
+		console.log(req.params.tid)
 		var mysql = req.app.get('mysql');
-		console.log(req body);
-		console.log(req.params.ID_Team);
-		var sql = "UPDATE Team SET Name = ?, City = ?, State = ?, Country = ?, Stadium = ? WHERE ID_Team = Abbreviation";
-		var inserts = [req.body.Name, req.body.City, req.body.State, req.body.Country, req.body.Stadium, req.body.Abbreviation]
-		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
-			if(error)
-				console.log(error);
-				res.write(JSON.stringify(error));
-				res.end():
+		getTeam(res, mysql, context, complete);	
+		function complete() {
+			callbackCount++;
+			if(callbackCount >= 1) {
+				//console.log(context);
+				res.render('UpdateTeam', context);
 			}
-			else {
-				res.status(200);
+		}
+	});
+	
+	//Update Team
+	router.post('/UpdateTeam/:tid', function(req, res) {
+		var mysql = req.app.get('mysql');
+		console.log(req.body)
+		console.log(req.params)
+		var sql = "UPDATE `Team` SET Name = ?, City = ?, State = ?, Country = ?, Stadium = ? WHERE Abbreviation = ?";
+		var inserts = [req.body.New_Name, req.body.New_City, req.body.New_State, New_Country, New_Stadium, req.body.ID_Update];
+		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
+			if(error) {
+				console.log("There was an error in posting")
+				res.write(JSON.stringify(error));
 				res.end();
+			} else {
+				res.redirect('/Team');
 			}
 		});
-	});*/
-				       
+	});
+		
 	return router;
 }();
