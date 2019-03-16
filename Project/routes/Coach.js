@@ -97,20 +97,10 @@ module.exports = function() {
 	};
 	
 	router.get('/UpdateCoach/:cid', function(req, res) {
-		callbackCount = 0;
 		const context = {};
 		context.title = "Update Coach";
-		context.jsscripts = [];
-		var mysql = req.app.get('mysql');
-		getCoachUpdate(res, mysql, cid, context, complete);
-		function complete() {
-			callbackCount++;
-			if(callbackCount >= 1) {
-				console.log(context.UpdateCoach);
-				res.render('UpdateCoach', context);
-			}
-		}
-	});	
+		res.render("UpdateCoach", context);
+	});
 	
 	//Update Coach
 	router.post('/UpdateCoach/:cid', function(req, res) {
