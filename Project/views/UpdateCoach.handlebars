@@ -1,8 +1,8 @@
 <h3>Update Coach ( {{#each Coach}} {{First_Name}} {{Last_Name}} {{/each}})</h3>
     <form id="updateCoach" action="/Coach/UpdateCoach/:{{cid}}" method="POST">
-        First Name: <input type="text" name="FName"> <br>
-        Last Name: <input type="text" name="LName"> <br>
-	    Team: <select name="NewTeam">
+        First Name: <input type="text" name="New_First_Name"> <br>
+        Last Name: <input type="text" name="New_Last_Name"> <br>
+	    Team: <select name="New_Team">
         	{{#each Team}}
             	<option value="{{Abbreviation}}"> {{Abbreviation}} </option>
             	{{/each}} </select> <br>
