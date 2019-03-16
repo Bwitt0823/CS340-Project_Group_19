@@ -130,7 +130,8 @@ module.exports = function() {
 		var inserts = [req.body.New_First_Name, req.body.New_Last_Name, req.body.New_Team, req.params.cid];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(error) {
-				re.write(JSON.stringify(error));
+				console.log("There was an error in posting")
+				res.write(JSON.stringify(error));
 				res.end();
 			} else {
 				res.redirect('/Coach');
