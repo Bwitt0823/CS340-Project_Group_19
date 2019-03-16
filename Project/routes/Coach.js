@@ -6,7 +6,7 @@ module.exports = function() {
 	
 	//Displays all Coaches
 	function getCoach(res, mysql, context, complete) {
-		var sql = "SELECT ID_Coach, First_Name, Last_Name, Team FROM `Coach` WHERE 1";
+		var sql = "SELECT ID_Coach AS cid, First_Name, Last_Name, Team FROM `Coach`";
 		mysql.pool.query(sql, function(error, results, fields) {
 			if(error) {
 				res.write(JSON.stringify(error));
@@ -59,7 +59,7 @@ module.exports = function() {
 			if(err) {
 				return res.status(400).send(JSON.stringify(err));
 			} else {
-				res.sendStatus(200).end();
+				res.status(202).end();
 			}
 		});
 	});
