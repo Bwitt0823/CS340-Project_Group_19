@@ -1,11 +1,11 @@
-<h3>Update Coach</h3>
-    <form id="updateCoach" action="/Coach/UpdateCoach/{{cid}}" method="POST">
+<h3>Update Coach ( {{Coach.First_Name}} {{Coach.Last_Name}} )</h3>
+    <form id="updateCoach" action="/Coach" method="POST">
         First Name: <input type="text" name="First_Name"> <br>
         Last Name: <input type="text" name="Last_Name"> <br>
 	    Team: <select name="name">
         	{{#each Team}}
             	<option value="{{group.Team}}"> {{group.Team}} </option>
-            	{{/each}} </select> <br>
-        <input type="submit" value="Submit">
+            	{{/each}} 
+	</select> <br>
     </form>
 <button onclick="updateCoach({{Coach.cid}})">Update</button>
