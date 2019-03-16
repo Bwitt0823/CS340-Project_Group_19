@@ -124,6 +124,7 @@ module.exports = function() {
 	//Update Coach
 	router.post('/UpdateCoach/:cid', function(req, res) {
 		var mysql = req.app.get('mysql');
+		var callbackCount = 0;
 		const context = {};
 		console.log(req.body)
 		console.log(req.params.cid)
