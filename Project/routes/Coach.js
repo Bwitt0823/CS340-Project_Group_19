@@ -98,10 +98,13 @@ module.exports = function() {
 	router.get('/UpdateCoach/:cid', function(req, res) {
 		var callbackCount = 0;
 		const context = {};
+		console.log("test 1")
 		context.title = "UpdateCoach";
 		context.jsscripts = [];
 		var mysql = req.app.get('mysql');
-		getTeam(res, mysql, context, complete);		
+		console.log("test 2")
+		getTeam(res, mysql, context, complete);	
+		console.log("test 3")
 		//getCoachUpdate(req, res, mysql, context, complete);
 		/*var sql = "SELECT First_Name, Last_Name FROM `Coach` WHERE ID_Coach=?";
 		var inserts = [req.params.cid];
