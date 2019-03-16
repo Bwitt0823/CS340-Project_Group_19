@@ -98,13 +98,10 @@ module.exports = function() {
 	router.get('/UpdateCoach/:cid', function(req, res) {
 		var callbackCount = 0;
 		const context = {};
-		console.log("test 1")
 		context.title = "UpdateCoach";
 		context.jsscripts = [];
 		var mysql = req.app.get('mysql');
-		console.log("test 2")
 		getTeam(res, mysql, context, complete);	
-		console.log("test 3")
 		//getCoachUpdate(req, res, mysql, context, complete);
 		/*var sql = "SELECT First_Name, Last_Name FROM `Coach` WHERE ID_Coach=?";
 		var inserts = [req.params.cid];
@@ -116,9 +113,9 @@ module.exports = function() {
 		function complete() {
 			callbackCount++;
 			if(callbackCount >= 1) {
-				console.log("test 4")
-				console.log(context.Coach);
-				console.log("test 5")
+				//console.log("test 4")
+				console.log(context);
+				//console.log("test 5")
 				res.render('UpdateCoach', context);
 			}
 		}
