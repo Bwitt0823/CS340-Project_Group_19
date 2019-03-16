@@ -1,10 +1,5 @@
-<html>
-    {{#each foo}}
-    {{this}}
-    {{/each}}
-    
-    <h3>Current Players</h3>
-    <table>
+<h3>Current Players</h3>
+<table>
         <thead>
             <th>First Name</th>
             <th>Last Name</th>
@@ -20,8 +15,8 @@
                 <td>{{College}}</td>
                 <td>{{Number}}</td>
                 <td>{{Team}}</td>
-                <td><button onclick="deletePlayer({{ID_Player}})">Delete</button></td>
-                <td><a href="/UpdatePlayer/{{ID_Player}}">Update</a></td>
+                <td><button onclick="deletePlayer({{pid}})">Delete</button></td>
+                <td><a href="/UpdatePlayer/{{pid}}">Update</a></td>
             <tr>
             {{/each}}
         </tbody>
@@ -34,11 +29,10 @@
         College: <input type="text" name="College"> <br>
         Number: <input type="number" name="Number"> <br>
         Team: <select name="player">
-            {{#each Player}}
-            <option value="{{ID_Player}}"> {{Team}} </option>
+            {{#each Team}}
+            <option value="{{Abbreviation}}"> {{Abbreviation}} </option>
             {{/each}} </select> <br>
         <input type="submit" value="Submit">
     </form>
-    </br>
-    
-</html>
+</br><br/><a href="/">Back to the home page!</a><br/>
+
