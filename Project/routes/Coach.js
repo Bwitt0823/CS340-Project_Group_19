@@ -32,16 +32,16 @@ module.exports = function() {
 	
 	//Display all Coaches
 	router.get('/', function(req, res) {
-		callbackCount = 0;
+		var callbackCount = 0;
 		const context = {};
 		context.title = "Coach";
 		context.jsscripts = ["deleteCoach.js"];
 		var mysql = req.app.get('mysql');
+		getTeam(res, mysql, context, complete);		
 		getCoach(res, mysql, context, complete);
-		getTeam(res, mysql, context, complete);
 		function complete() {
 			callbackCount++;
-			if(callbackCount >= 1) {
+			if(callbackCount >= 2) {
 				console.log(context.Coach);
 				res.render('Coach', context);
 			}
