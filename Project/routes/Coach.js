@@ -79,7 +79,7 @@ module.exports = function() {
 	
 	/* Update Coach Page*/
 	
-	//Render Update Coach Page
+	/*//Render Update Coach Page
 	router.get('/UpdateCoach/:cid', function(req, res) {
 		const context = {};
 		var mysql = req.app.get('mysql');
@@ -93,7 +93,7 @@ module.exports = function() {
 				res.render("UpdateCoach", context);
 			}
 		});
-	}); 
+	}); */
 	
 	//Display to Update Coache
 	router.get('/UpdateCoach/:cid', function(req, res) {
