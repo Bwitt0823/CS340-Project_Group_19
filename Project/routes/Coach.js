@@ -73,6 +73,7 @@ module.exports = function() {
 		var inserts = [req.params.cid]
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(error) {
+				console.log(error);
 				return res.render('404');
 			} else {
 				context.UpdateCoach = results;
