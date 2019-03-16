@@ -72,12 +72,12 @@ module.exports = function() {
 		var sql = "SELECT First_Name, Last_Name, Team FROM `Coach` WHERE ID_Coach = ?";
 		var inserts = [req.params.cid]
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
-			if(error) {
-				res.write(JSON.stringify(error));
-				res.end();
+			if(err || results.length == 0) {
+				return res.render('404');
+			} else {
+				context.UpdateCoach = results[0];
+				res.render("UpdateCoach", context);
 			}
-			context.UpdateCoach = results;
-			complete();
 		});
 	}); 
 	
