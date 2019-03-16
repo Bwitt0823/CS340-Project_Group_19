@@ -2,9 +2,9 @@
     <form id="updateCoach" action="/Coach" method="POST">
         First Name: <input type="text" name="First_Name"> <br>
         Last Name: <input type="text" name="Last_Name"> <br>
-	    Team: <select name="name">
+	    Team: <select name="Team">
         	{{#each Team}}
-            	<option value="{{group.Team}}"> {{group.Team}} </option>
+            	<option value="{{Team.Abbreviation}}"> {{Team.Abbreviation}} </option>
             	{{/each}} 
 	</select> <br>
     </form>
