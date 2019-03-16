@@ -31,9 +31,10 @@ module.exports = function() {
 	};
 	
 	//Displays Selected Coach
-	function getCoachUpdate(res, mysql, context, complete) {
+	function getCoachUpdate(req, res, mysql, context, complete) {
 		var sql = "SELECT First_Name, Last_Name, Team FROM `Coach` WHERE ID_Coach = ?";
-		mysql.pool.query(sql, function(error, results, fields) {
+		var inserts = [req.params.cid];
+		mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(error) {
 				res.write(JSON.stringify(error));
 				res.end();
