@@ -99,8 +99,8 @@ module.exports = function() {
 		const context = {};
 		context.title = "UpdateCoach";
 		context.jsscripts = [];
-		/*var mysql = req.app.get('mysql');
-		var sql = "SELECT First_Name, Last_Name FROM `Coach` WHERE ID_Coach=?";
+		var mysql = req.app.get('mysql');
+		/*var sql = "SELECT First_Name, Last_Name FROM `Coach` WHERE ID_Coach=?";
 		var inserts = [req.params.cid];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(error) {
