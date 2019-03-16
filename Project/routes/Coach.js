@@ -117,7 +117,7 @@ module.exports = function() {
 	router.post('/UpdateCoach/:cid', function(req, res) {
 		var mysql = req.app.get('mysql');
 		console.log(req.body)
-		
+		console.log(req.params)
 		var sql = "UPDATE `Coach` SET First_Name = ?, Last_Name = ?, Team = ? WHERE ID_Coach = ?";
 		var inserts = [req.body.New_First_Name, req.body.New_Last_Name, req.body.New_Team, req.params.cid];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
