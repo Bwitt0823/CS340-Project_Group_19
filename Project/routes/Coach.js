@@ -101,6 +101,8 @@ module.exports = function() {
 		context.title = "UpdateCoach";
 		context.jsscripts = [];
 		var mysql = req.app.get('mysql');
+		getTeam(res, mysql, context, complete);		
+		getCoachUpdate(req, res, mysql, context, complete);
 		var sql = "SELECT First_Name, Last_Name FROM `Coach` WHERE ID_Coach=?";
 		var inserts = [req.params.cid];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
@@ -108,8 +110,6 @@ module.exports = function() {
 				return res.render('404');
 			};
 		});
-		getTeam(res, mysql, context, complete);		
-		getCoachUpdate(req, res, mysql, context, complete);
 		function complete() {
 			callbackCount++;
 			if(callbackCount >= 1) {
