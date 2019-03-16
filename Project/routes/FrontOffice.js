@@ -19,7 +19,7 @@ module.exports = function() {
 	
 	//Displays all FrontOfficees
 	function getFrontOffice(res, mysql, context, complete) {
-		var sql = "SELECT ID_FrontOffice AS fid, First_Name, Last_Name, Team FROM `FrontOffice`";
+		var sql = "SELECT ID_Front_Office AS fid, First_Name, Last_Name, Role, Team FROM `Front_Office`";
 		mysql.pool.query(sql, function(error, results, fields) {
 			if(error) {
 				res.write(JSON.stringify(error));
@@ -32,7 +32,7 @@ module.exports = function() {
 	
 	//Displays Selected FrontOffice
 	function getFrontOfficeUpdate(req, res, mysql, context, complete) {
-		var sql = "SELECT First_Name, Last_Name, Team FROM `FrontOffice` WHERE ID_FrontOffice = ?";
+		var sql = "SELECT First_Name, Last_Name, Role, Team FROM `Front_Office` WHERE ID_Front_Office = ?";
 		console.log(req.params)
 		var inserts = [req.params.fid];
 		mysql.pool.query(sql, inserts, function(error, results, fields) {
@@ -66,8 +66,8 @@ module.exports = function() {
 	//Create a new FrontOffice
 	router.post('/', function(req, res) {
 		var mysql = req.app.get('mysql');
-		var sql = "INSERT INTO `FrontOffice` (First_Name, Last_Name, Team) VALUES (?, ?, ?)";
-		var inserts = [req.body.First_Name, req.body.Last_Name, req.body.Team];
+		var sql = "INSERT INTO `Front_Office` (First_Name, Last_Name, Role, Team) VALUES (?, ?, ?, ?)";
+		var inserts = [req.body.First_Name, req.body.Last_Name, req.body.Role, req.body.Team];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(error) {
 				return res.status(400).send(JSON.stringify(error));
@@ -81,7 +81,7 @@ module.exports = function() {
 	//Delete a FrontOffice
 	router.delete('/:fid', function(req, res) {
 		var mysql = req.app.get('mysql');
-		var sql = "DELETE FROM `FrontOffice` WHERE ID_FrontOffice = ?";
+		var sql = "DELETE FROM `Front_Office` WHERE ID_Front_Office = ?";
 		var inserts = [req.params.fid];
 		sql = mysql.pool.query(sql, inserts, function(err, results, fields) {
 			if(err) {
@@ -118,8 +118,8 @@ module.exports = function() {
 		var mysql = req.app.get('mysql');
 		console.log(req.body)
 		console.log(req.params)
-		var sql = "UPDATE `FrontOffice` SET First_Name = ?, Last_Name = ?, Team = ? WHERE ID_FrontOffice = ?";
-		var inserts = [req.body.New_First_Name, req.body.New_Last_Name, req.body.New_Team, req.body.ID_Update];
+		var sql = "UPDATE `Front_Office` SET First_Name = ?, Last_Name = ?, Role = ?, Team = ? WHERE ID_Front_Office = ?";
+		var inserts = [req.body.New_First_Name, req.body.New_Last_Name, req.body.New_Role, req.body.New_Team, req.body.ID_Update];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(error) {
 				console.log("There was an error in posting")
