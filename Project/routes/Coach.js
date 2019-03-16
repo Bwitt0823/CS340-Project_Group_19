@@ -102,7 +102,7 @@ module.exports = function() {
 		var sql = "SELECT First_Name, Last_Name FROM `Coach` WHERE ID_Coach=?";
 		var inserts = [req.params.cid];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
-			if(errror) {
+			if(error) {
 				return res.render('404');
 			};
 		});
