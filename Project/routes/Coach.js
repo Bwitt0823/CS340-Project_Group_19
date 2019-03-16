@@ -66,41 +66,20 @@ module.exports = function() {
 	/* Update Coach Page*/
 	
 	//Render Update Coach Page
-	/*router.get('/UpdateCoach/:cid', function(req, res) {
+	router.get('/UpdateCoach/:cid', function(req, res) {
 		const context = {};
 		var mysql = req.app.get('mysql');
-		console.log(req.body);
-		console.log(req.params.cid);
 		var sql = "SELECT First_Name, Last_Name, Team FROM `Coach` WHERE ID_Coach = ?";
 		var inserts = [req.params.cid]
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
-			if(error || results.length == 0) {
+			if(error) {
 				return res.render('404');
 			} else {
-				context.Coach = results[0];
+				context.UpdateCoach = results;
 				res.render("UpdateCoach", context);
 			}
 		});
-	}); */
-	
-	function getCoachUpdate(res, mysql, cid, context, complete) {
-		var sql = "SELECT First_Name, Last_Name, Team FROM `Coach` WHERE ID_Coach = ?";
-		var inserts = [req.params.cid]
-		mysql.pool.query(sql, function(error, results, fields) {
-			if(error) {
-				res.write(JSON.stringify(error));
-				res.end();
-			}
-			context.UpdateCoach = results;
-			complete();
-		});
-	};
-	
-	router.get('/UpdateCoach/:cid', function(req, res) {
-		const context = {};
-		context.title = "Update Coach";
-		res.render("UpdateCoach", context);
-	});
+	}); 
 	
 	//Update Coach
 	router.post('/UpdateCoach/:cid', function(req, res) {
