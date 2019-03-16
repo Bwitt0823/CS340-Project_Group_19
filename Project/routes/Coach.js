@@ -95,6 +95,24 @@ module.exports = function() {
 		});
 	}); 
 	
+	//Display to Update Coache
+	router.get('/UpdateCoach/:cid', function(req, res) {
+		var callbackCount = 0;
+		const context = {};
+		context.title = "UpdateCoach";
+		context.jsscripts = [];
+		var mysql = req.app.get('mysql');
+		getTeam(res, mysql, context, complete);		
+		getCoach(res, mysql, context, complete);
+		function complete() {
+			callbackCount++;
+			if(callbackCount >= 2) {
+				console.log(context.Coach);
+				res.render('UpdateCoach', context);
+			}
+		}
+	});
+	
 	//Update Coach
 	router.put('/UpdateCoach/:cid', function(req, res) {
 		var mysql = req.app.get('mysql');
