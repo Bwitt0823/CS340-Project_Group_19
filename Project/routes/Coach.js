@@ -129,7 +129,15 @@ module.exports = function() {
 		console.log(req.params.cid)
 		var sql = "UPDATE `Coach` SET First_Name = ?, Last_Name = ?, Team = ? WHERE ID_Coach = ?";
 		var inserts = [req.body.New_First_Name, req.body.New_Last_Name, req.body.New_Team, req.params.cid];
-		getCoachUpdate(req, res, mysql, context, complete);
+		getTeam(res, mysql, context, complete);		
+		getCoach(res, mysql, context, complete);
+		function complete() {
+			callbackCount++;
+			if(callbackCount >= 2) {
+				console.log(context.Coach);
+				res.render('Coach', context);
+			}
+		}
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(error) {
 				console.log("There was an error in posting")
