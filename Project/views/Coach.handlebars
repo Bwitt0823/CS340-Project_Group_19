@@ -24,8 +24,8 @@
 		First Name: <input type="text" name="First_Name"> <br>
 		Last Name: <input type="text" name="Last_Name"> <br>
 		Team: <select name="Team">
-		{{#each Coach}}
-		<option value="{{Team}}"> {{Team}} </option>
+		{{#each Team}}
+		<option value="{{Team.Abbreviation}}"> {{Team.Abbreviation}} </option>
 		{{/each}} </select> <br>
 		<input type="submit" value="Submit">
 	</form>
