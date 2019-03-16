@@ -1,6 +1,6 @@
-function deleteCoach(ID_Coach) {
+function deleteCoach(cid) {
     $.ajax({
-        url: '/Coach' + ID_Coach,
+        url: '/Coach/' + cid,
         type: 'DELETE',
         success: function (result) {
             window.location.reload(true);
