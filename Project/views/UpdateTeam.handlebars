@@ -1,14 +1,11 @@
-<html>
-
 <h3>Update Team</h3>
-    <form id="updateTeam" action="/UpdateTeam:Abbreviation" method="POST">
+    <form id="updateTeam" action="/Team/UpdateTeam/:{{Abbreviation}}" method="POST">
         Abbreviation: {{Abbreviation}} <br>
-        Name: <input type="text" name="Name"> <br>
-        City: <input type="text" name="City"> <br>
-        State: <input type="text" name="State"> <br>
-        Country: <input type = "text" name="Country"> <br>
-        Stadium: <input type="text" name="Stadium"> <br>
+        Name: <input type="text" name="New_Name"> <br>
+        City: <input type="text" name="New_City"> <br>
+        State: <input type="text" name="New_State"> <br>
+        Country: <input type = "text" name="New_Country"> <br>
+        Stadium: <input type="text" name="New_Stadium"> <br>
         <input type="submit" value="Submit">
     </form>
-    
-</html>
+
