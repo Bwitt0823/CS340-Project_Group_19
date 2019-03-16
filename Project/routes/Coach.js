@@ -2,6 +2,18 @@ module.exports = function() {
 	var express = require('express');
 	var router = express.Router();
 	
+	//Get access to Team table for the drop down menus
+	 function getTeam(res, mysql, context, complete){
+        	mysql.pool.query("SELECT Abbreviation FROM Team", function(error, results, fields){
+            		if(error){
+                		res.write(JSON.stringify(error));
+                		res.end();
+           		}
+           		context.Team  = results;
+            		complete();
+        	});
+    	}
+	
 	/* Coach Home Page*/
 	
 	//Displays all Coaches
