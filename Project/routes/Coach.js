@@ -79,23 +79,7 @@ module.exports = function() {
 	
 	/* Update Coach Page*/
 	
-	/*//Render Update Coach Page
-	router.get('/UpdateCoach/:cid', function(req, res) {
-		const context = {};
-		var mysql = req.app.get('mysql');
-		var sql = "SELECT First_Name, Last_Name, Team FROM `Coach` WHERE ID_Coach = ?";
-		var inserts = [req.params.cid]
-		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
-			if(error || results.length == 0) {
-				return res.render('404');
-			} else {
-				context.UpdateCoach = results[0];
-				res.render("UpdateCoach", context);
-			}
-		});
-	}); */
-	
-	//Display to Update Coache
+	//Display to Update Coach
 	router.get('/UpdateCoach/:cid', function(req, res) {
 		var callbackCount = 0;
 		const context = {};
@@ -114,13 +98,14 @@ module.exports = function() {
 	});
 	
 	//Update Coach
-	router.put('/UpdateCoach/:cid', function(req, res) {
+	router.post('/UpdateCoach/:cid', function(req, res) {
 		var mysql = req.app.get('mysql');
 		var sql = "UPDATE `Coach` SET First_Name = ?, Last_Name = ?, Team = ? WHERE ID_Coach = ?";
 		var inserts = [req.body.First_Name, req.body.Last_Name, req.body.Team, req.params.cid];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(error) {
-				return res.render('404');
+				re.write(JSON.stringify(error));
+				res.end();
 			} else {
 				res.redirect('/Coach');
 			}
