@@ -80,7 +80,7 @@ module.exports = function() {
 	/* Update Coach Page*/
 	
 	//Display to Update Coach
-	router.get('/UpdateCoach/:cid', function(req, res) {
+	router.get('/Coach/UpdateCoach/:cid', function(req, res) {
 		var callbackCount = 0;
 		const context = {};
 		context.title = "UpdateCoach";
@@ -98,7 +98,7 @@ module.exports = function() {
 	});
 	
 	//Update Coach
-	router.post('/UpdateCoach/:cid', function(req, res) {
+	router.post('/Coach/UpdateCoach/:cid', function(req, res) {
 		var mysql = req.app.get('mysql');
 		var sql = "UPDATE `Coach` SET First_Name = ?, Last_Name = ?, Team = ? WHERE ID_Coach = ?";
 		var inserts = [req.body.First_Name, req.body.Last_Name, req.body.Team, req.params.cid];
