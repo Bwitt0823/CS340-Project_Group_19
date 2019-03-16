@@ -103,13 +103,13 @@ module.exports = function() {
 		var mysql = req.app.get('mysql');
 		getTeam(res, mysql, context, complete);		
 		getCoachUpdate(req, res, mysql, context, complete);
-		var sql = "SELECT First_Name, Last_Name FROM `Coach` WHERE ID_Coach=?";
+		/*var sql = "SELECT First_Name, Last_Name FROM `Coach` WHERE ID_Coach=?";
 		var inserts = [req.params.cid];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(error) {
 				return res.render('404');
 			};
-		});
+		});*/
 		function complete() {
 			callbackCount++;
 			if(callbackCount >= 1) {
