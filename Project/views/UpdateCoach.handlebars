@@ -2,10 +2,10 @@
     <form id="updateCoach" action="/Coach/UpdateCoach/{{cid}}" method="POST">
         First Name: <input type="text" name="First_Name"> <br>
         Last Name: <input type="text" name="Last_Name"> <br>
-	Team: <select name="name" value="{{Team}}">
-            {{#each Coach}}
+	Team: <select name="name">
+            {{!-- {{{{#each Coach}}}} --}}
             <option value="{{Team}}"> {{Team}} </option>
-            {{/each}} </select> <br>
+            {{!-- {{{{/each}} </select> <br>}} --}}
         <input type="submit" value="Submit">
     </form>
 
