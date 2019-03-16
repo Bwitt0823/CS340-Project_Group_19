@@ -53,7 +53,7 @@ module.exports = function() {
 	/*NEED TO FIX CODE TO HAVE THE FUNCTION CALLED TO REMOVE THE COACH, {{ID_Coach}} is not pulling into Coach.handlebars*/
 	router.delete('/:cid', function(req, res) {
 		var mysql = req.app.get('mysql');
-		var sql = "DELETE FROM `COACH` WHERE ID_Coach = ?";
+		var sql = "DELETE FROM `Coach` WHERE ID_Coach = ?";
 		var inserts = [req.params.cid];
 		sql = mysql.pool.query(sql, inserts, function(err, results, fields) {
 			if(err) {
