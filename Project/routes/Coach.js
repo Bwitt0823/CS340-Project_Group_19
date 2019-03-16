@@ -30,20 +30,6 @@ module.exports = function() {
 		});
 	};
 	
-	//Displays Update Coaches
-	function getCoachUpdate(res, mysql, cid, context, complete) {
-		var sql = "SELECT First_Name, Last_Name, Team FROM `Coach` WHERE ID_Coach = ?";
-		var inserts = [req.params.cid];
-		mysql.pool.query(sql, inserts, function(error, results, fields) {
-			if(error) {
-				res.write(JSON.stringify(error));
-				res.end();
-			}
-			context.UpdateCoach = results;
-			complete();
-		});
-	};
-	
 	//Display all Coaches
 	router.get('/', function(req, res) {
 		var callbackCount = 0;
@@ -101,7 +87,7 @@ module.exports = function() {
 		context.jsscripts = [];
 		var mysql = req.app.get('mysql');
 		getTeam(res, mysql, context, complete);		
-		getCoachUpdate(res, mysql, cid, context, complete);
+		getCoach(res, mysql, context, complete);
 		function complete() {
 			callbackCount++;
 			if(callbackCount >= 2) {
