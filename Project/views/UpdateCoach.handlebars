@@ -5,7 +5,7 @@
 	    Team: <select name="Team">
         	{{#each Team}}
             	<option value="{{Abbreviation}}"> {{Abbreviation}} </option>
-            	{{/each}} 
-	</select> <br>
+            	{{/each}} </select> <br>
+		<input type="submit" value="Submit">
     </form>
-<button onclick="updateCoach({{Coach.cid}})">Update</button>
+{{!<button onclick="updateCoach({{Coach.cid}})">Update</button>}}
