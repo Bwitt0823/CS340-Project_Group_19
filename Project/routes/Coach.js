@@ -108,7 +108,7 @@ module.exports = function() {
 			};
 		});
 		getTeam(res, mysql, context, complete);		
-		//getCoachUpdate(req, res, mysql, context, complete);
+		getCoachUpdate(req, res, mysql, context, complete);
 		function complete() {
 			callbackCount++;
 			if(callbackCount >= 1) {
