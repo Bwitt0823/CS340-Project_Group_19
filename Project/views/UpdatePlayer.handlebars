@@ -1,16 +1,13 @@
-<html>
-
 <h3>Update Player</h3>
-    <form id="updatePlayer" action="/UpdatePlayer:ID_Player" method="POST">
-        First Name: <input type="text" name="First_Name"> <br>
-        Last Name: <input type="text" name="Last_Name"> <br>
-        College: <input type="text" name="College"> <br>
-        Number: <input type="number" name="Number"> <br>
-        Team: <select name="player">
-            {{#each Player}}
-            <option value="{{ID_Player}}"> {{Team}} </option>
+    <form id="updatePlayer" action="/Player/UpdatePlayer/:{{ID_Player}}" method="POST">
+        First Name: <input type="text" name="New_First_Name"> <br>
+        Last Name: <input type="text" name="New_Last_Name"> <br>
+        College: <input type="text" name="New_College"> <br>
+        Number: <input type="number" name="New_Number"> <br>
+        Team: <select name="New_Team">
+            {{#each Team}}
+            <option value="{{Abbreviation}}"> {{Abbreviation}} </option>
             {{/each}} </select> <br>
         <input type="submit" value="Submit">
     </form>
-    
-</html>
+
