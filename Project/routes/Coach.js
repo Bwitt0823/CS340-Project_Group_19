@@ -103,7 +103,7 @@ module.exports = function() {
 		console.log(req.params.cid)
 		var mysql = req.app.get('mysql');
 		getTeam(res, mysql, context, complete);	
-		getCoachUpdate(req, res, mysql, context, complete);
+		//getCoachUpdate(req, res, mysql, context, complete);
 		function complete() {
 			callbackCount++;
 			if(callbackCount >= 1) {
