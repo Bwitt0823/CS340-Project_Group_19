@@ -8,7 +8,7 @@ module.exports = function() {
 	
 	//Displays all Teams
 	function getTeam(res, mysql, context, complete) {
-		var sql = "SELECT Abbreviation as tid, Name, City, State, Country, Stadium FROM `Team`";
+		var sql = "SELECT Abbreviation AS tid, Name, City, State, Country, Stadium FROM `Team`";
 		mysql.pool.query(sql, function(error, results, fields) {
 			if(error) {
 				res.write(JSON.stringify(error));
@@ -44,7 +44,7 @@ module.exports = function() {
 		getTeam(res, mysql, context, complete);		
 		function complete() {
 			callbackCount++;
-			if(callbackCount >= 2) {
+			if(callbackCount >= 1) {
 				console.log(context.Team);
 				res.render('Team', context);
 			}
@@ -55,7 +55,7 @@ module.exports = function() {
 	router.post('/', function(req, res) {
 		var mysql = req.app.get('mysql');
 		var sql = "INSERT INTO `Team` (Abbreviation, Name, City, State, Country, Stadium) VALUES (?, ?, ?, ?, ?, ?)";
-		var inserts = [req.body.tid, req.body.Name, req.body.City, req.body.State, req.body.Country, req.body.Stadium];
+		var inserts = [req.body.Abbreviation, req.body.Name, req.body.City, req.body.State, req.body.Country, req.body.Stadium];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(error) {
 				return res.status(400).send(JSON.stringify(error));
