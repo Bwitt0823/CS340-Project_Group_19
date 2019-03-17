@@ -106,7 +106,7 @@ module.exports = function() {
 		console.log(req.body)
 		console.log(req.params)
 		var sql = "UPDATE `Team` SET Name = ?, City = ?, State = ?, Country = ?, Stadium = ? WHERE Abbreviation = ?";
-		var inserts = [req.body.New_Name, req.body.New_City, req.body.New_State, New_Country, New_Stadium, req.body.ID_Update];
+		var inserts = [req.body.New_Name, req.body.New_City, req.body.New_State, req.body.New_Country, req.body.New_Stadium, req.body.ID_Update];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(error) {
 				console.log("There was an error in posting")
