@@ -48,19 +48,22 @@ module.exports = function() {
 	router.get('/', function(req, res) {
 		var callbackCount = 0;
 		const context = {};
+		const contexttwo = {};
+		const contextthree = {};
 		context.title = "Coach";
+		contexttwo.title = "Player";
 		//context.jsscripts = ["deleteCoach.js"];
 		var mysql = req.app.get('mysql');
-		getTeam(res, mysql, context, complete);		
+		getTeam(res, mysql, contextthree, complete);		
 		getCoach(res, mysql, context, complete);
-    		getPlayer(res, mysql, context, complete);
+    		getPlayer(res, mysql, contexttwo, complete);
 		function complete() {
 			callbackCount++;
 			if(callbackCount >= 3) {
 				console.log(context.Coach);
-				console.log(context.Player);
+				console.log(contexttwo.Player);
 				res.render('Coach', context);
-				res.render('Player', context);
+				res.render('Player', contexttwo);
 			}
 		}
 	});
