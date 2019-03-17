@@ -1,1 +1,47 @@
-testing
+<h3>Current Positions</h3>
+        <table>
+        <thead>
+            <th>Player ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Position</th>
+            <th>Team</th>
+        </thead>
+        <tbody>
+            {{#each Player}}
+            <tr>
+                <td>{{pid}}</td>
+                <td>{{Type}}</td>
+                <td>{{First_Name}}</td>
+                <td>{{Last_Name}}</td>
+                <td>{{Position}}</td>
+                <td>{{Team}}</td>
+            <tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <br><br>
+        <table>
+        <thead>
+            <th>Coach ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Position</th>
+            <th>Team</th>
+        </thead>
+        <tbody>
+            {{#each Coach}}
+            <tr>
+                <td>{{cid}}</td>
+                <td>{{Type}}</td>
+                <td>{{First_Name}}</td>
+                <td>{{Last_Name}}</td>
+                <td>{{Position}}</td>
+                <td>{{Team}}</td>
+            <tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    
+
