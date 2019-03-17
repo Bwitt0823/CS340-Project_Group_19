@@ -6,6 +6,7 @@
 		<th>First Name</th>
 		<th>Last Name</th>
 		<th>Team</th>
+		<th><a href="/Coach/UpdateCoach/">Update</a></th>
 	</thead>
 	<tbody>
 		{{#each Coach}}
@@ -15,7 +16,7 @@
 			<td>{{Last_Name}}</td>
 			<td>{{Team}}</td>
 			<td><button onclick="deleteCoach({{cid}})">Delete</button></td>
-			<td><a href="/Coach/UpdateCoach/{{cid}}">Update</a></td>
+			<!--<td><a href="/Coach/UpdateCoach/{{cid}}">Update</a></td>-->
 		</tr>
 		{{/each}}
 	</tbody>
