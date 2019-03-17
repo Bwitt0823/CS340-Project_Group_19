@@ -65,7 +65,7 @@ CREATE TABLE Player_Position (
     ID_Position int,
     PRIMARY KEY (ID_Player, ID_Position),
     FOREIGN KEY Player_ID (ID_Player)
-    	REFERENCES Player (ID_Player),
+    	REFERENCES Player (ID_Player) ON DELETE CASCADE,
     FOREIGN KEY pPosition_ID (ID_Position)
     	REFERENCES Position (ID_Position)
 );
@@ -77,7 +77,7 @@ CREATE TABLE Coach_Position (
     ID_Position int,
     PRIMARY KEY (ID_Coach, ID_Position),
     FOREIGN KEY Coach_ID (ID_Coach)
-    	REFERENCES Coach (ID_Coach),
+    	REFERENCES Coach (ID_Coach) ON DELETE CASCADE,
     FOREIGN KEY cPosition_ID (ID_Position)
     	REFERENCES Position (ID_Position)
 );
