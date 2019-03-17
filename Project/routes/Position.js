@@ -53,12 +53,14 @@ module.exports = function() {
 		var mysql = req.app.get('mysql');
 		getTeam(res, mysql, context, complete);		
 		getCoach(res, mysql, context, complete);
-    getPlayer(res, mysql, context, complete);
+    		getPlayer(res, mysql, context, complete);
 		function complete() {
 			callbackCount++;
 			if(callbackCount >= 3) {
 				console.log(context.Coach);
+				console.log(context.Player);
 				res.render('Coach', context);
+				res.render('Player', context);
 			}
 		}
 	});
