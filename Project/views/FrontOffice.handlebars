@@ -17,12 +17,13 @@
           <td>{{Role}}</td>
           <td>{{Team}}</td>
           <td><button onclick="deleteFrontOffice({{fid}})">Delete</button></td>
-          <td><a href="/FrontOffice/UpdateFrontOffice/{{fid}}">Update</a></td>
+          <!--<td><a href="/FrontOffice/UpdateFrontOffice/{{fid}}">Update</a></td>-->
         </tr>
         {{/each}}
       </tbody>
     </table>
-
+    <a href="/FrontOffice/UpdateFrontOffice/">Update</a>
+    
     <h3>Add Front Office Member</h3>
     <form id="addFrontOffice" action="/FrontOffice" method="POST">
         First Name: <input type="text" name="First_Name"> <br>
