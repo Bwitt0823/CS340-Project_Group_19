@@ -18,11 +18,12 @@
                 <td>{{Country}}</td>
                 <td>{{Stadium}}</td>
                 <!-- <td><button onclick="deleteTeam({{tid}})">Delete</button></td> -->
-                <td><a href="/Team/UpdateTeam/{{tid}}">Update</a></td>
+                <!--<td><a href="/Team/UpdateTeam/{{tid}}">Update</a></td>-->
             </tr>
             {{/each}}
         </tbody>
     </table>
+    <a href="/Team/UpdateTeam/">Update Teams</a>
     
     <h3>Add Team</h3>
     <form id="addTeam" action="/Team" method="POST">
