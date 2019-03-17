@@ -69,7 +69,7 @@ module.exports = function() {
 	//Delete a Team
 	router.delete('/:tid', function(req, res) {
 		var mysql = req.app.get('mysql');
-		var sql = "DELETE FROM `Team` WHERE Abbreviation = ?";
+		var sql = "DELETE FROM `Team` WHERE Abbreviation = '?'";
 		var inserts = [req.params.tid];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(error) {
