@@ -81,7 +81,7 @@ module.exports = function() {
 	/* Update Player Page*/
 	
 	//Display to Update Player
-	router.get('/UpdatePlayer/:pid', function(req, res) {
+	router.get('/UpdatePlayer/', function(req, res) {
 		var callbackCount = 0;
 		const context = {};
 		context.title = "UpdatePlayer";
@@ -100,7 +100,7 @@ module.exports = function() {
 	});
 	
 	//Update Player
-	router.post('/UpdatePlayer/:pid', function(req, res) {
+	router.post('/UpdatePlayer/', function(req, res) {
 		var mysql = req.app.get('mysql');
 		console.log(req.body)
 		console.log(req.params)
