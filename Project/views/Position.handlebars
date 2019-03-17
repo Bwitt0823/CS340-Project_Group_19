@@ -1,8 +1,7 @@
 <h3>Current Positions</h3>
-<table>
+        <table>
         <thead>
-            <th>ID</th>
-            <th>Type</th>
+            <th>Player ID</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Position</th>
@@ -17,13 +16,32 @@
                 <td>{{Last_Name}}</td>
                 <td>{{Position}}</td>
                 <td>{{Team}}</td>
-                <td><button onclick="deletePlayer({{pid}})">Delete</button></td>
-                <!--<td><a href="/Player/UpdatePlayer/{{pid}}">Update</a></td>-->
             <tr>
             {{/each}}
         </tbody>
     </table>
-    <a href="/Player/UpdatePositionPlayer">Update Player Positions</a>
-    <a href="/Player/UpdatePositionCoach">Update Coach Positions</a>
+    <br><br>
+        <table>
+        <thead>
+            <th>Coach ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Position</th>
+            <th>Team</th>
+        </thead>
+        <tbody>
+            {{#each Coach}}
+            <tr>
+                <td>{{cid}}</td>
+                <td>{{Type}}</td>
+                <td>{{First_Name}}</td>
+                <td>{{Last_Name}}</td>
+                <td>{{Position}}</td>
+                <td>{{Team}}</td>
+            <tr>
+            {{/each}}
+        </tbody>
+    </table>
+
     
 
