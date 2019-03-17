@@ -95,7 +95,7 @@ module.exports = function() {
 	/* Update FrontOffice Page*/
 	
 	//Display to Update FrontOffice
-	router.get('/UpdateFrontOffice/:fid', function(req, res) {
+	router.get('/UpdateFrontOffice/', function(req, res) {
 		var callbackCount = 0;
 		const context = {};
 		context.title = "UpdateFrontOffice";
@@ -114,7 +114,7 @@ module.exports = function() {
 	});
 	
 	//Update FrontOffice
-	router.post('/UpdateFrontOffice/:fid', function(req, res) {
+	router.post('/UpdateFrontOffice/', function(req, res) {
 		var mysql = req.app.get('mysql');
 		console.log(req.body)
 		console.log(req.params)
