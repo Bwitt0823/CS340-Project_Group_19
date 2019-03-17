@@ -63,7 +63,7 @@ module.exports = function() {
 				console.log(context.Coach);
 				console.log(contexttwo.Player);
 				res.render('Coach', context);
-				res.render('Player', contexttwo);
+				//res.render('Player', contexttwo);
 			}
 		}
 	});
