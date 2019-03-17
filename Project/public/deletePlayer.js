@@ -1,6 +1,6 @@
-function deletePlayer(ID_Player) {
+function deletePlayer(pid) {
   $.ajax({
-    url: '/Player/' + ID_Player,
+    url: '/Player/' + pid,
     type: 'DELETE',
     success: function(result){
       window.location.reload(true);
