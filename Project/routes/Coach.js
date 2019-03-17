@@ -95,7 +95,7 @@ module.exports = function() {
 	/* Update Coach Page*/
 	
 	//Display to Update Coach
-	router.get('/UpdateCoach/:cid', function(req, res) {
+	router.get('/UpdateCoach/', function(req, res) {
 		var callbackCount = 0;
 		const context = {};
 		context.title = "UpdateCoach";
@@ -114,7 +114,7 @@ module.exports = function() {
 	});
 	
 	//Update Coach
-	router.post('/UpdateCoach/:cid', function(req, res) {
+	router.post('/UpdateCoach/', function(req, res) {
 		var mysql = req.app.get('mysql');
 		console.log(req.body)
 		console.log(req.params)
