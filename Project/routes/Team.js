@@ -83,7 +83,7 @@ module.exports = function() {
 	/* Update Team Page*/
 	
 	//Display to Update Team
-	router.get('/UpdateTeam/:tid', function(req, res) {
+	router.get('/UpdateTeam/', function(req, res) {
 		var callbackCount = 0;
 		const context = {};
 		context.title = "UpdateTeam";
@@ -101,7 +101,7 @@ module.exports = function() {
 	});
 	
 	//Update Team
-	router.post('/UpdateTeam/:tid', function(req, res) {
+	router.post('/UpdateTeam/', function(req, res) {
 		var mysql = req.app.get('mysql');
 		console.log(req.body)
 		console.log(req.params)
