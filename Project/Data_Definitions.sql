@@ -104,7 +104,7 @@ VALUES ('Bill', 'Belichick', 'NE'),
 
 -- Insert Sample Front Office Members
 INSERT INTO Front_Office 
-	(First_Name, Last_Name, Roll, Team)
+	(First_Name, Last_Name, Role, Team)
 VALUES ('Robert', 'Craft', 'Owner', 'NE'),
 		('Bill', 'Belichick', 'General Manager', 'NE'),
 		('Stan', 'Kroenke', 'Owner', 'LAR'),
