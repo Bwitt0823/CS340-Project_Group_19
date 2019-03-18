@@ -109,7 +109,7 @@ SET :change = :value
 
 	-- Combined
 	SELECT Team.Abbreviation, Team.Name, Team.City, Team.State, Team.Country, Team.Stadium, Front_Office.First_Name AS Front_Office_First_Name, 
-			Front_Office.Last_Name AS Front_Office_Last_Name, Front_Office.Roll, Coach.First_Name AS Coach_First_Name, Coach.Last_Name AS Coach_Last_Name
+			Front_Office.Last_Name AS Front_Office_Last_Name, Front_Office.Role, Coach.First_Name AS Coach_First_Name, Coach.Last_Name AS Coach_Last_Name
 	From Team, Front_Office, Coach
 	WHERE Team.Abbreviation = :value
 		AND Front_Office.Team = :value
