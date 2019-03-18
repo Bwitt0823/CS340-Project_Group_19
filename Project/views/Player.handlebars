@@ -25,6 +25,17 @@
     </table>
     <a href="/Player/UpdatePlayer/{{pid}}">Update Players</a>
     
+    <form id='filter_Player' action='' method=''>
+<!--- this form does not submit directly, the button handles all the interaction with backend -->
+    <label> Filter by Team</label>
+    <select name="Team"> 
+        {{#each Team}}
+        <option value="{{Abbreviation}}">{{Abbreviation}}</option>
+        {{/each}}
+    </select><br>
+    <input type="button" value="Filter" onclick="filterPlayerByTeam()">
+</form>
+    
     <h3>Add Player</h3>
     <form id="addPlayer" action="/Player" method="POST">
         First Name: <input type="text" name="First_Name"> <br>
