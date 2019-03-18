@@ -5,7 +5,7 @@
 <form id='filter_Player' action='' method=''>
 <!--- this form does not submit directly, the button handles all the interaction with backend -->
     <label> Filter by Team</label>
-    <select id="Team_filter" name="Team_Abbss"> 
+    <select id="Team_filter" name="Team_Abb"> 
         {{#each Team}}
         <option value="{{Abbreviation}}">{{Abbreviation}}</option>
         {{/each}}
@@ -16,7 +16,7 @@
 <form id='filter_Playerss' action='' method=''>
 <!--- this form does not submit directly, the button handles all the interaction with backend -->
     <label> Search Players on Teams with Abbreviation:</label>
-    <input id='Team_filterss' type='text' name='Team_Abb' value=''>
+    <input id='Team_filterss' type='text' name='Team_Abbss' value=''>
     <input type="button" value="Search" onclick="filterPlayerbyTeam()">
 </form>
 
