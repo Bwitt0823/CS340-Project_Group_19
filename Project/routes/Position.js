@@ -66,5 +66,6 @@ module.exports = function() {
 				//res.render('Player', contexttwo);
 			}
 		}
-	});
+	}
+		   });
 				
