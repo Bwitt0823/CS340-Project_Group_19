@@ -16,7 +16,7 @@ const playerRoute = require(path.join(__dirname, "routes/Player"));
 const coachRoute = require(path.join(__dirname, "routes/Coach"));
 const frontOfficeRoute = require(path.join(__dirname, "routes/FrontOffice"));
 const teamRoute = require(path.join(__dirname, "routes/Team"));
-const positionRoute = require(path.join(__dirname, "routes/Position"));
+
 
 app.engine('handlebars', handlebars.engine);
 app.use(bodyParser.urlencoded({extended:true}));
@@ -30,7 +30,7 @@ app.use('/Player', playerRoute);
 app.use('/Coach', coachRoute);
 app.use('/FrontOffice', frontOfficeRoute);
 app.use('/Team', teamRoute);
-app.use('/Position', positionRoute);
+
 
 app.use(function(req,res){
   res.status(404);
