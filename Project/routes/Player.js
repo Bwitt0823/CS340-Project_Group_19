@@ -58,7 +58,7 @@ module.exports = function() {
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            context.people = results;
+            context.Player = results;
             complete();
         });
     }
@@ -69,12 +69,12 @@ module.exports = function() {
         var context = {};
         context.jsscripts = ["deletePlayer.js","filterPlayer.js"];
         var mysql = req.app.get('mysql');
-        getPlayerbyTeam(req,res, mysql, context, complete);
+        getPlayerbyTeam(req, res, mysql, context, complete);
         getTeam(res, mysql, context, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 2){
-                res.render('people', context);
+                res.render('Player', context);
             }
 
         }
