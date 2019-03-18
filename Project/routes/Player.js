@@ -36,7 +36,7 @@ module.exports = function() {
 		var callbackCount = 0;
 		const context = {};
 		context.title = "Player";
-		context.jsscripts = ["deletePlayer.js"];
+		context.jsscripts = ["deletePlayer.js", "filterPlayer.js"];
 		var mysql = req.app.get('mysql');
 		getTeam(res, mysql, context, complete);		
 		getPlayer(res, mysql, context, complete);
@@ -64,7 +64,7 @@ module.exports = function() {
     }
 	
 	/*Display all people from a given homeworld. Requires web based javascript to delete users with AJAX*/
-    router.get('/filter/:tid', function(req, res){
+    router.get('/filter/:Team', function(req, res){
         var callbackCount = 0;
         var context = {};
         context.jsscripts = ["deletePlayer.js","filterPlayer.js"];
