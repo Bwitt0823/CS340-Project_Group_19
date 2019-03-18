@@ -4,7 +4,7 @@
 -- Data Definition Queries
 
 -- Create Team Table
-DROP TABLE IF EXISTS Team
+DROP TABLE IF EXISTS Team;
 CREATE TABLE Team (
     Abbreviation char(4) PRIMARY KEY,
     Name char(25),
@@ -15,7 +15,7 @@ CREATE TABLE Team (
 );
 
 -- Create Front_Office Table
-DROP TABLE IF EXISTS Front_Office
+DROP TABLE IF EXISTS Front_Office;
 CREATE TABLE Front_Office (
     ID_Front_Office int AUTO_INCREMENT PRIMARY KEY,
     First_Name char(50),
@@ -27,7 +27,7 @@ CREATE TABLE Front_Office (
 );
 
 -- Create Coach Table
-DROP TABLE IF EXISTS Coach
+DROP TABLE IF EXISTS Coach;
 CREATE TABLE Coach (
     ID_Coach int AUTO_INCREMENT PRIMARY KEY,
     First_Name char(50),
@@ -38,7 +38,7 @@ CREATE TABLE Coach (
 );
 
 -- Create Player Table
-DROP TABLE IF EXISTS Player
+DROP TABLE IF EXISTS Player;
 CREATE TABLE Player (
     ID_Player int AUTO_INCREMENT PRIMARY KEY,
     First_Name char(50),
@@ -51,7 +51,7 @@ CREATE TABLE Player (
 );
 
 -- Create Position Table
-DROP TABLE IF EXISTS Position
+DROP TABLE IF EXISTS Position;
 CREATE TABLE Position (
     ID_Position int AUTO_INCREMENT PRIMARY KEY,
     Position_Type char(15),
@@ -59,7 +59,7 @@ CREATE TABLE Position (
 );
 
 -- Create Player_Position Table
-DROP TABLE IF EXISTS Player_Position
+DROP TABLE IF EXISTS Player_Position;
 CREATE TABLE Player_Position (
     ID_Player int,
     ID_Position int,
@@ -71,7 +71,7 @@ CREATE TABLE Player_Position (
 );
 
 -- Create Coach_Position Table
-DROP TABLE IF EXISTS Coach_Position
+DROP TABLE IF EXISTS Coach_Position;
 CREATE TABLE Coach_Position (
     ID_Coach int,
     ID_Position int,
