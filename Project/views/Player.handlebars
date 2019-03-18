@@ -28,7 +28,7 @@
     <form id='filter_Player' action='' method=''>
 <!--- this form does not submit directly, the button handles all the interaction with backend -->
     <label> Filter by Team</label>
-    <select name="Team"> 
+    <select id="Team_filter" name="Team"> 
         {{#each Team}}
         <option value="{{Abbreviation}}">{{Abbreviation}}</option>
         {{/each}}
