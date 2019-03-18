@@ -50,10 +50,10 @@ module.exports = function() {
 	});
 	
       function getPlayerbyTeam(req, res, mysql, context, complete){
-      var query = "SELECT ID_Player AS pid, First_Name, Last_Name, College, Number, Team FROM `Player` ON Team = Team.Abbreviation WHERE Team LIKE " + mysql.pool.escape(req.params.s+'%');
-      console.log(query)
-      
-      mysql.pool.query(query, function(error, results, fields){
+      var query = "SELECT ID_Player AS pid, First_Name, Last_Name, College, Number, Team FROM `Player` ON Team = Team.Abbreviation WHERE Team = ?;
+      console.log(req.params)
+      var inserts = [req.params.Team_Abb]
+      mysql.pool.query(query, inserts, function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();
