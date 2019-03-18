@@ -13,12 +13,7 @@
     <input type="button" value="Filter" onclick="filterPlayerbyTeam()">
 </form>
 
-<form id='filter_Player' action='' method=''>
-<!--- this form does not submit directly, the button handles all the interaction with backend -->
-    <label> Search Players on Teams with Abbreviation:</label>
-    <input id='Team_filter' type='text' name='Team_Abb' value=''>
-    <input type="button" value="Search" onclick="filterPlayerbyTeam()">
-</form>
+
 
 <table>
         <thead>
@@ -60,5 +55,13 @@
             {{/each}} </select> <br>
         <input type="submit" value="Submit">
     </form>
+    
+    <form id='filter_Player' action='' method=''>
+<!--- this form does not submit directly, the button handles all the interaction with backend -->
+    <label> Search Players on Teams with Abbreviation:</label>
+    <input id='Team_filter' type='text' name='Team_Abb' value=''>
+    <input type="button" value="Search" onclick="filterPlayerbyTeam()">
+</form>
+    
 </br><br/><a href="/">Back to the home page!</a><br/>
 
