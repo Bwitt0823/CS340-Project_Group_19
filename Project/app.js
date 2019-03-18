@@ -4,7 +4,7 @@
 */
 
 const express = require('express');
-var mysql = require('./dbcon.js');
+const mysql = require('./dbcon.js');
 const path = require('path');
 const bodyParser = require('body-parser');
 
