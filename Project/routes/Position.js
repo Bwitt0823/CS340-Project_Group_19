@@ -74,9 +74,9 @@ module.exports = function() {
 		var mysql = req.app.get('mysql');
 		var sql = "DELETE FROM `Position_Player` WHERE ID_Player = ?";
 		var inserts = [req.params.ID_Player];
-		sql = mysql.pool.query(sql, inserts, function(err, results, fields) {
-			if(err) {
-				return res.status(400).send(JSON.stringify(err));
+		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
+			if(error) {
+				return res.status(400).send(JSON.stringify(error));
 			} else {
 				res.status(202).end();
 			}
