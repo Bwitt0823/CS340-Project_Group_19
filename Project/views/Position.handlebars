@@ -3,12 +3,12 @@
 <form id="AddPosition" action="/Position" method="POST">
 	<select id="player" name="player">
 		{{#each Player}}
-		<option value="{{Player.ID_Player}}">{{Player.First_Name}} {{Player.Last_Name}}</option> 
+		<option value="{{ID_Player}}">{{First_Name}} {{Last_Name}}</option> 
 		{{/each}}
 	</select> <br>
 	<select id="position" name="position">
 		{{#each Position}}
-		<option value="{{Position.ID_Position}}">{{Position.Position_Group}}</option> 
+		<option value="{{ID_Position}}">{{Position_Group}}</option> 
 		{{/each}}
 	</select> <br>
 	<input type="submit" value="Submit">
@@ -24,10 +24,10 @@
 		<th>Position</th>
 	</thead>
 	<tbody>
-		<td>{{Player.ID_Player}}</td>
-		<td>{{Player.First_Name}}</td>
-		<td>{{Player.Last_Name}}</td>
-		<td>{{Player.Team}}</td>
-		<td>{{Position.Position_Group}}</td>
+		<td>{{ID_Player}}</td>
+		<td>{{First_Name}}</td>
+		<td>{{Last_Name}}</td>
+		<td>{{Team}}</td>
+		<td>{{Position_Group}}</td>
 	</tbody>
 </table>
