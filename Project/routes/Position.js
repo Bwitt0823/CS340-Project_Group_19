@@ -11,7 +11,8 @@ module.exports = function() {
 			}
 			context.Position = results;
 			complete();
-	};
+		});
+	 };
 						 
 	function getPlayer(res, mysql, context, complete) {
 		var sql = "SELECT * FROM `Player` WHERE 1";
@@ -22,6 +23,7 @@ module.exports = function() {
 			}
 			context.Player = results;
 			complete();
+		});
 	};
 						 
 	router.get('/', function(req, res) {
