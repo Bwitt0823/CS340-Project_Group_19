@@ -1,15 +1,32 @@
 <h3> Positions </h3>
 
 <form id="AddPosition" ation="" method="POST">
-  <select id="player" name="player">
-    {{#each Player}}
-    <option value="{{Player.ID_Player}}">{{Player.First_Name}} {{Player.Last_Name}}</option> 
-    {{/each}}
-  </select> <br>
-  <select id="position" name="position">
-    {{#each Position}}
-    <option value="{{Position.ID_Position}}">{{Position.Position_Group}}</option> 
-    {{/each}}
-  </select> <br>
-  <input type="submit" value="Submit">
+	<select id="player" name="player">
+		{{#each Player}}
+		<option value="{{Player.ID_Player}}">{{Player.First_Name}} {{Player.Last_Name}}</option> 
+		{{/each}}
+	</select> <br>
+	<select id="position" name="position">
+		{{#each Position}}
+		<option value="{{Position.ID_Position}}">{{Position.Position_Group}}</option> 
+		{{/each}}
+	</select> <br>
+	<input type="submit" value="Submit">
 </form>
+
+<table>
+	<thead>
+		<th>Player ID</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Team</th>
+		<th>Position</th>
+	</thead>
+	<tbody>
+		<td>{{Player.ID_Player}}</td>
+		<td>{{Player.First_Name}}</td>
+		<td>{{Player.Last_Name}}</td>
+		<td>{{Player.Team}}</td>
+		<td>{{Position.Position_Group}}</td>
+	</tbody>
+</table>
