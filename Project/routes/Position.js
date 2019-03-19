@@ -26,7 +26,7 @@ module.exports = function() {
 						 
 	router.get('/', function(req, res) {
 			var callbackCount = 0;
-			const contect = {};
+			const context = {};
 			context.title = "Position";
 			context.jsscripts = [];
 			var mysql = req.app.get('mysql');
