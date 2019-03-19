@@ -40,6 +40,19 @@ module.exports = function() {
 				}
 			}
 		});
+			
+	router.post('/', function(req, res) {
+		var mysql = req.app.get('mysql');
+		var sql = "INSERT INTO `Player_Position` (ID_Player, ID_Position) VALUES (?,?)";
+		var inserts = [req.body.player, req.body.position];
+		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
+			if(error) {
+				return res.status(400).send(JSON.stringify(error));
+			} else {
+				res.redirect('/Position');
+			}
+		});
+	});
 	
 	return router;
 }();
