@@ -30,6 +30,7 @@ module.exports = function() {
 			context.title = "Position";
 			context.jsscripts = [];
 			var mysql = req.app.get('mysql');
+			getPlayer(res,mysql, context, complete);
 			getPosition(res, mysql, context, complete);
 			function complete() {
 				callbackCount++;
