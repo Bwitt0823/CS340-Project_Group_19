@@ -16,7 +16,7 @@ const playerRoute = require(path.join(__dirname, "routes/Player"));
 const coachRoute = require(path.join(__dirname, "routes/Coach"));
 const frontOfficeRoute = require(path.join(__dirname, "routes/FrontOffice"));
 const teamRoute = require(path.join(__dirname, "routes/Team"));
-cont positionRoute = require(path.join(__dirname, "routes/Position));
+cont positionRoute = require(path.join(__dirname, "routes/Position"));
 
 
 app.engine('handlebars', handlebars.engine);
