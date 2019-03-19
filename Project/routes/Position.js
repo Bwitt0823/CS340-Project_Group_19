@@ -34,7 +34,7 @@ module.exports = function() {
 			getPosition(res, mysql, context, complete);
 			function complete() {
 				callbackCount++;
-				if(callbackCount >= 1) {
+				if(callbackCount >= 2) {
 					console.log(context.Position);
 					res.render('Position', context);
 				}
