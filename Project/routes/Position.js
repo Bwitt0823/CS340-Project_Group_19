@@ -3,7 +3,7 @@ module.exports = function() {
 	var router = express.Router();
 	
 	function getPosition(res, mysql, context, complete) {
-		var sql = "SELECT * FROM `Position` WHERE 1";
+		var sql = "SELECT ID_Position, Position_Group FROM `Position` WHERE 1";
 		mysql.pool.query(sql, function(error, results, fields) {
 			if(error) {
 				res.write(JSON.stringify(error));
@@ -15,7 +15,7 @@ module.exports = function() {
 	 };
 						 
 	function getPlayer(res, mysql, context, complete) {
-		var sql = "SELECT * FROM `Player` WHERE 1";
+		var sql = "SELECT ID_Player, First_Name, Last_Name, Team FROM `Player` WHERE 1";
 		mysql.pool.query(sql, function(error, results, fields) {
 			if(error) {
 				res.write(JSON.stringify(error));
