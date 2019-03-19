@@ -24,10 +24,14 @@
 		<th>Position</th>
 	</thead>
 	<tbody>
-		<td>{{ID_Player}}</td>
-		<td>{{First_Name}}</td>
-		<td>{{Last_Name}}</td>
-		<td>{{Team}}</td>
-		<td>{{Position_Group}}</td>
+		{{#each PlayerPosition}}
+		<tr>
+			<td>{{ID_Player}}</td>
+			<td>{{First_Name}}</td>
+			<td>{{Last_Name}}</td>
+			<td>{{Team}}</td>
+			<td>{{Position_Group}}</td>
+		</tr>
+		{{/each}}
 	</tbody>
 </table>
