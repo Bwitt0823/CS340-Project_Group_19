@@ -42,7 +42,7 @@ module.exports = function() {
 			var callbackCount = 0;
 			const context = {};
 			context.title = "Position";
-			context.jsscripts = ["deletePlayer.js"];
+			context.jsscripts = ["deletePosition.js"];
 			var mysql = req.app.get('mysql');
 			getPlayer(res,mysql, context, complete);
 			getPosition(res, mysql, context, complete);
