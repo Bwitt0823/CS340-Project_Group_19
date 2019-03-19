@@ -1,4 +1,4 @@
-function deletePlayer(ID_Player) {
+function deletePosition(ID_Player) {
     $.ajax({
         url: '/Position/' + ID_Player,
         type: 'DELETE',
