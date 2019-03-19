@@ -6,9 +6,10 @@
     <option value="{{Player.ID_Player}}">{{Player.First_Name}} {{Player.Last_Name}}</option> 
     {{/each}}
   </select> <br>
-    <select id="position" name="position">
+  <select id="position" name="position">
     {{#each Position}}
     <option value="{{Position.ID_Position}}">{{Position.Position_Group}}</option> 
     {{/each}}
   </select> <br>
+  <input type="submit" value="Submit">
 </form>
