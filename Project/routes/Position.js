@@ -25,6 +25,18 @@ module.exports = function() {
 			complete();
 		});
 	};
+	
+	function getPlayerPosition(res, mysql, context, complete) {
+		var sql = "SELECT Player.ID_Player, Player.First_Name, Player.Last_Name, Player.Team, Position.Position_Group FROM `Player`JOIN `Player_Position` ON Player_Position.ID_Player = Player.ID_Player JOIN `Position` ON Position.ID_Position = Player_Position.ID_Position GROUP BY Team;";
+		mysql.pool.query(sql, function(error, results, fields) {
+			if(error) {
+				res.write(JSON.stringify(error));
+				res.end();
+			}
+			context.PlayerPosition = results;
+			complete();
+		});
+	 };
 						 
 	router.get('/', function(req, res) {
 			var callbackCount = 0;
@@ -34,9 +46,10 @@ module.exports = function() {
 			var mysql = req.app.get('mysql');
 			getPlayer(res,mysql, context, complete);
 			getPosition(res, mysql, context, complete);
+			getPlayerPosition(res, mysql, context, complete);
 			function complete() {
 				callbackCount++;
-				if(callbackCount >= 2) {
+				if(callbackCount >= 3) {
 					console.log(context.Position);
 					res.render('Position', context);
 				}
